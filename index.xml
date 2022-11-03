@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Whis&#39;s Blog</title>
+    <link>https://xhwhis.github.io/hugo-blog/</link>
+    <description>Recent content on Whis&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 28 Mar 2022 15:58:59 +0800</lastBuildDate><atom:link href="https://xhwhis.github.io/hugo-blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flarum mac本地化安装配置Guide</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/flarum-installation/</link>
+      <pubDate>Mon, 28 Mar 2022 15:58:59 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/flarum-installation/</guid>
+      <description>Mac 本地化安装配置 Flarum 系统: macOS Monterey + Apple M1
+前提: homebrewCN
+MariaDB 配置 brew install mariadb brew services restart mariadb 初始化 MariaDB sudo 下配置
+mysql_secure_installation Composer brew install composer ps. 安装 composer 会连同依赖 php 一同安装，但 flarum 没适配最新的 php
+php@8.0 brew install php@8.0 brew services restart php@8.0 同环境下还有一个 php，指定一下 PHP8.0
+echo &amp;#39;export PATH=&amp;#34;/opt/homebrew/opt/php@8.0/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.zshrc echo &amp;#39;export PATH=&amp;#34;/opt/homebrew/opt/php@8.0/sbin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.zshrc Caddy brew install caddy URL 重写——配置 Caddy 在/opt/homebrew/etc/Caddyfile 中添加配置，如果没有该文件，则新建
+127.0.0.1:9090 { root * /var/www/flarum/public php_fastcgi 127.</description>
+    </item>
+    
+    <item>
+      <title>20191010</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/2019-10-10/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/2019-10-10/</guid>
+      <description>替换
+ls -al `which ls` 或 ls -al $(which ls) 高亮显示 grep
+locate ls.c | grep ls.c 查找 find
+find ~ -name &amp;#34;*.c&amp;#34; .c .cpp .sh .h 求总行数
+sudo find ~ \( -name &amp;#34;*.[ch]&amp;#34; -o -name &amp;#34;*.sh&amp;#34; -o -name &amp;#34;*.cpp&amp;#34; \) -exec wc -l {} \; | xargs wc -l </description>
+    </item>
+    
+    <item>
+      <title>2019917</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/2019-9-17/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/2019-9-17/</guid>
+      <description>打印环境变量 echo ${PATH}
+which ls 查找 ls 命令位
+man ls 检索 ls 命令用法
+alias a=&amp;lsquo;echo hahaha&amp;rsquo; 别名
+chmod 更改文件权限 chown
+su - root 切换用户
+whoami 身份 who am i 身份+</description>
+    </item>
+    
+    <item>
+      <title>2019921</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/2019-9-21/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/2019-9-21/</guid>
+      <description>alias 别名 alias x = &amp;ldquo;cd /home/lws/hzoj&amp;rdquo;
+练习 2 在 root 下生成的文件 更改为 lws
+.profile 登录时执行
+.bashrc 登录后执行
+date +&amp;quot;%Y-%m-%d %H:%M:%S&amp;quot;</description>
+    </item>
+    
+    <item>
+      <title>avl_tree</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/avl-tree/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/avl-tree/</guid>
+      <description>avl_tree 节点数 在高度为 h 的 avl 树中，最少节点数 low(h)
+low(h) = low(h - 1) + low(h - 2) + 1 low(0) = 1 low(1) = 2
+最大节点数 max(h)
+max(h) = 2^h - 1
+平衡 LL 型 右旋
+RR 型 左旋
+LR 型 左旋&amp;ndash;&amp;gt;(LL 型)&amp;ndash;&amp;gt;右旋
+RL 型 右旋&amp;ndash;&amp;gt;(RR 型)&amp;ndash;&amp;gt;左旋</description>
+    </item>
+    
+    <item>
+      <title>c/cpp</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/c-cpp/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/c-cpp/</guid>
+      <description>Interview Q&amp;amp;A C/CPP const int getValue(); // 普通成员函数
+? int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值
+const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变)
+char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变)
+? const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量
+#pragma pack(n) 设定结构体、联合以及类成员变量以 n 字节方式对齐
+#pragma pack(n) 使用
+#pragma pack(push) // 保存对齐状态 #pragma pack(4) // 设定为 4 字节对齐 struct test { char m1; double m4; int m3; }; #pragma pack(pop) // 恢复对齐状态 位域 Bit mode: 2; // mode 占 2 位 类可以将其（非静态）数据成员定义为位域（bit-field），在一个位域中含有一定数量的二进制位。当一个程序需要向其他程序或硬件设备传递二进制数据时，通常会用到位域。</description>
+    </item>
+    
+    <item>
+      <title>computer_networking</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/computer-networking/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/computer-networking/</guid>
+      <description>Interview Q&amp;amp;A Computer Networking 数据链路层 广播信道 广播通信：
+硬件地址（物理地址、MAC 地址） 单播（unicast）帧（一对一）：收到的帧的 MAC 地址与本站的硬件地址相同 广播（broadcast）帧（一对全体）：发送给本局域网上所有站点的帧 多播（multicast）帧（一对多）：发送给本局域网上一部分站点的帧 运输层 为什么客户端释放最后需要 TIME-WAIT 等待 2MSL 呢？ 为了保证客户端发送的最后一个 ACK 报文能够到达服务端。若未成功到达，则服务端超时重传 FIN+ACK 报文段，客户端再重传 ACK，并重新计时。 防止已失效的连接请求报文段出现在本连接中。TIME-WAIT 持续 2MSL 可使本连接持续的时间内所产生的所有报文段都从网络中消失，这样可使下次连接中不会出现旧的连接报文段。 </description>
+    </item>
+    
+    <item>
+      <title>cpp_stl</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/cpp-stl/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/cpp-stl/</guid>
+      <description>c++ stl queue-类说明 queue 类：队列
+头文件：queue 命名空间：std 声明：queue&amp;lt;data_type&amp;gt; q; q.fornt() 查看队首元素 q.empty() 队列判空 q.push() 入队 q.pop() 出队 q.size() 队列元素数量 stack-类说明 stack 类：栈
+头文件：stack 命名空间：std 声明：stack&amp;lt;data_type&amp;gt; s; s.top() 查看栈顶元素 s.empty() 栈判空 s.push() 入栈 s.pop()类 出栈 s.size() 栈元素数量 string-类说明 string 类：字符串
+头文件：string 命名空间：std 声明：string str1, str2; str1 == str2 字符串判等 str1 &amp;lt; str2 字典序小于 str1 &amp;gt; str2 字典序大于 str1 += str2 字符串连接 str1.length() 字符串长度 string (hzoj-166) #include &amp;lt;iostream&amp;gt; #include &amp;lt;string&amp;gt; using namespace std; int main() { string str1, str2; int n; cin &amp;gt;&amp;gt; str1 &amp;gt;&amp;gt; n &amp;gt;&amp;gt; str2; cout &amp;lt;&amp;lt; min(str1.</description>
+    </item>
+    
+    <item>
+      <title>effective</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/effective/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/effective/</guid>
+      <description>Interview Q&amp;amp;A Effective C++ 视 C++ 为一个语言联邦（C、Object-Oriented C++、Template C++、STL） 宁可以编译器替换预处理器（尽量以 const、enum、inline 替换 #define） 尽可能使用 const 确定对象被使用前已先被初始化（构造时赋值（copy 构造函数）比 default 构造后赋值（copy assignment）效率高） 了解 C++ 默默编写并调用哪些函数（编译器暗自为 class 创建 default 构造函数、copy 构造函数、copy assignment 操作符、析构函数） 若不想使用编译器自动生成的函数，就应该明确拒绝（将不想使用的成员函数声明为 private，并且不予实现） 为多态基类声明 virtual 析构函数（如果 class 带有任何 virtual 函数，它就应该拥有一个 virtual 析构函数） 别让异常逃离析构函数（析构函数应该吞下不传播异常，或者结束程序，而不是吐出异常；如果要处理异常应该在非析构的普通函数处理） 绝不在构造和析构过程中调用 virtual 函数（因为这类调用从不下降至 derived class） 令 operator= 返回一个 reference to *this （用于连锁赋值） 在 operator= 中处理 “自我赋值” 赋值对象时应确保复制 “对象内的所有成员变量” 及 “所有 base class 成分”（调用基类复制构造函数） 以对象管理资源（资源在构造函数获得，在析构函数释放，建议使用智能指针，资源取得时机便是初始化时机（Resource Acquisition Is Initialization，RAII）） 在资源管理类中小心 copying 行为（普遍的 RAII class copying 行为是：抑制 copying、引用计数、深度拷贝、转移底部资源拥有权（类似 auto_ptr）） 在资源管理类中提供对原始资源（raw resources）的访问（对原始资源的访问可能经过显式转换或隐式转换，一般而言显示转换比较安全，隐式转换对客户比较方便） 成对使用 new 和 delete 时要采取相同形式（new 中使用 [] 则 delete []，new 中不使用 [] 则 delete） 以独立语句将 newed 对象存储于（置入）智能指针（如果不这样做，可能会因为编译器优化，导致难以察觉的资源泄漏） 让接口容易被正确使用，不易被误用（促进正常使用的办法：接口的一致性、内置类型的行为兼容；阻止误用的办法：建立新类型，限制类型上的操作，约束对象值、消除客户的资源管理责任） 设计 class 犹如设计 type，需要考虑对象创建、销毁、初始化、赋值、值传递、合法值、继承关系、转换、一般化等等。 宁以 pass-by-reference-to-const 替换 pass-by-value （前者通常更高效、避免切割问题（slicing problem），但不适用于内置类型、STL 迭代器、函数对象） 必须返回对象时，别妄想返回其 reference（绝不返回 pointer 或 reference 指向一个 local stack 对象，或返回 reference 指向一个 heap-allocated 对象，或返回 pointer 或 reference 指向一个 local static 对象而有可能同时需要多个这样的对象。） 将成员变量声明为 private（为了封装、一致性、对其读写精确控制等） 宁以 non-member、non-friend 替换 member 函数（可增加封装性、包裹弹性（packaging flexibility）、机能扩充性） 若所有参数（包括被 this 指针所指的那个隐喻参数）皆须要类型转换，请为此采用 non-member 函数 考虑写一个不抛异常的 swap 函数 尽可能延后变量定义式的出现时间（可增加程序清晰度并改善程序效率） 尽量少做转型动作（旧式：(T)expression、T(expression)；新式：const_cast&amp;lt;T&amp;gt;(expression)、dynamic_cast&amp;lt;T&amp;gt;(expression)、reinterpret_cast&amp;lt;T&amp;gt;(expression)、static_cast&amp;lt;T&amp;gt;(expression)、；尽量避免转型、注重效率避免 dynamic_casts、尽量设计成无需转型、可把转型封装成函数、宁可用新式转型） 避免使用 handles（包括 引用、指针、迭代器）指向对象内部（以增加封装性、使 const 成员函数的行为更像 const、降低 “虚吊号码牌”（dangling handles，如悬空指针等）的可能性） 为 “异常安全” 而努力是值得的（异常安全函数（Exception-safe functions）即使发生异常也不会泄露资源或允许任何数据结构败坏，分为三种可能的保证：基本型、强列型、不抛异常型） 透彻了解 inlining 的里里外外（inlining 在大多数 C++ 程序中是编译期的行为；inline 函数是否真正 inline，取决于编译器；大部分编译器拒绝太过复杂（如带有循环或递归）的函数 inlining，而所有对 virtual 函数的调用（除非是最平淡无奇的）也都会使 inlining 落空；inline 造成的代码膨胀可能带来效率损失；inline 函数无法随着程序库的升级而升级） 将文件间的编译依存关系降至最低（如果使用 object references 或 object pointers 可以完成任务，就不要使用 objects；如果能够，尽量以 class 声明式替换 class 定义式；为声明式和定义式提供不同的头文件） 确定你的 public 继承塑模出 is-a（是一种）关系（适用于 base classes 身上的每一件事情一定适用于 derived classes 身上，因为每一个 derived class 对象也都是一个 base class 对象） 避免遮掩继承而来的名字（可使用 using 声明式或转交函数（forwarding functions）来让被遮掩的名字再见天日） 区分接口继承和实现继承（在 public 继承之下，derived classes 总是继承 base class 的接口；pure virtual 函数只具体指定接口继承；非纯 impure virtual 函数具体指定接口继承及缺省实现继承；non-virtual 函数具体指定接口继承以及强制性实现继承） 考虑 virtual 函数以外的其他选择（如 Template Method 设计模式的 non-virtual interface（NVI）手法，将 virtual 函数替换为 “函数指针成员变量”，以 tr1::function 成员变量替换 virtual 函数，将继承体系内的 virtual 函数替换为另一个继承体系内的 virtual 函数） 绝不重新定义继承而来的 non-virtual 函数 绝不重新定义继承而来的缺省参数值，因为缺省参数值是静态绑定（statically bound），而 virtual 函数却是动态绑定（dynamically bound） 通过复合塑模 has-a（有一个）或 “根据某物实现出”（在应用域（application domain），复合意味 has-a（有一个）；在实现域（implementation domain），复合意味着 is-implemented-in-terms-of（根据某物实现出）） 明智而审慎地使用 private 继承（private 继承意味着 is-implemented-in-terms-of（根据某物实现出），尽可能使用复合，当 derived class 需要访问 protected base class 的成员，或需要重新定义继承而来的时候 virtual 函数，或需要 empty base 最优化时，才使用 private 继承） 明智而审慎地使用多重继承（多继承比单一继承复杂，可能导致新的歧义性，以及对 virtual 继承的需要，但确有正当用途，如 “public 继承某个 interface class” 和 “private 继承某个协助实现的 class”；virtual 继承可解决多继承下菱形继承的二义性问题，但会增加大小、速度、初始化及赋值的复杂度等等成本） 了解隐式接口和编译期多态（class 和 templates 都支持接口（interfaces）和多态（polymorphism）；class 的接口是以签名为中心的显式的（explicit），多态则是通过 virtual 函数发生于运行期；template 的接口是奠基于有效表达式的隐式的（implicit），多态则是通过 template 具现化和函数重载解析（function overloading resolution）发生于编译期） 了解 typename 的双重意义（声明 template 类型参数是，前缀关键字 class 和 typename 的意义完全相同；请使用关键字 typename 标识嵌套从属类型名称，但不得在基类列（base class lists）或成员初值列（member initialization list）内以它作为 base class 修饰符） 学习处理模板化基类内的名称（可在 derived class templates 内通过 this-&amp;gt; 指涉 base class templates 内的成员名称，或藉由一个明白写出的 “base class 资格修饰符” 完成） 将与参数无关的代码抽离 templates（因类型模板参数（non-type template parameters）而造成代码膨胀往往可以通过函数参数或 class 成员变量替换 template 参数来消除；因类型参数（type parameters）而造成的代码膨胀往往可以通过让带有完全相同二进制表述（binary representations）的实现类型（instantiation types）共享实现码） 运用成员函数模板接受所有兼容类型（请使用成员函数模板（member function templates）生成 “可接受所有兼容类型” 的函数；声明 member templates 用于 “泛化 copy 构造” 或 “泛化 assignment 操作” 时还需要声明正常的 copy 构造函数和 copy assignment 操作符） 需要类型转换时请为模板定义非成员函数（当我们编写一个 class template，而它所提供之 “与此 template 相关的” 函数支持 “所有参数之隐式类型转换” 时，请将那些函数定义为 “class template 内部的 friend 函数”） 请使用 traits classes 表现类型信息（traits classes 通过 templates 和 “templates 特化” 使得 “类型相关信息” 在编译期可用，通过重载技术（overloading）实现在编译期对类型执行 if&amp;hellip;else 测试） 认识 template 元编程（模板元编程（TMP，template metaprogramming）可将工作由运行期移往编译期，因此得以实现早期错误侦测和更高的执行效率；TMP 可被用来生成 “给予政策选择组合”（based on combinations of policy choices）的客户定制代码，也可用来避免生成对某些特殊类型并不适合的代码） 了解 new-handler 的行为（set_new_handler 允许客户指定一个在内存分配无法获得满足时被调用的函数；nothrow new 是一个颇具局限的工具，因为它只适用于内存分配（operator new），后继的构造函数调用还是可能抛出异常） 了解 new 和 delete 的合理替换时机（为了检测运用错误、收集动态分配内存之使用统计信息、增加分配和归还速度、降低缺省内存管理器带来的空间额外开销、弥补缺省分配器中的非最佳齐位、将相关对象成簇集中、获得非传统的行为） 编写 new 和 delete 时需固守常规（operator new 应该内涵一个无穷循环，并在其中尝试分配内存，如果它无法满足内存需求，就应该调用 new-handler，它也应该有能力处理 0 bytes 申请，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”；operator delete 应该在收到 null 指针时不做任何事，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”） 写了 placement new 也要写 placement delete（当你写一个 placement operator new，请确定也写出了对应的 placement operator delete，否则可能会发生隐微而时断时续的内存泄漏；当你声明 placement new 和 placement delete，请确定不要无意识（非故意）地遮掩了它们地正常版本） 不要轻忽编译器的警告 让自己熟悉包括 TR1 在内的标准程序库（TR1，C++ Technical Report 1，C++11 标准的草稿文件） 让自己熟悉 Boost（准标准库） More Effective c++ 仔细区别 pointers 和 references（当你知道你需要指向某个东西，而且绝不会改变指向其他东西，或是当你实现一个操作符而其语法需求无法由 pointers 达成，你就应该选择 references；任何其他时候，请采用 pointers） 最好使用 C++ 转型操作符（static_cast、const_cast、dynamic_cast、reinterpret_cast） 绝不要以多态（polymorphically）方式处理数组（多态（polymorphism）和指针算术不能混用；数组对象几乎总是会涉及指针的算术运算，所以数组和多态不要混用） 非必要不提供 default constructor（避免对象中的字段被无意义地初始化） 对定制的 “类型转换函数” 保持警觉（单自变量 constructors 可通过简易法（explicit 关键字）或代理类（proxy classes）来避免编译器误用；隐式类型转换操作符可改为显式的 member function 来避免非预期行为） 区别 increment/decrement 操作符的前置（prefix）和后置（postfix）形式（前置式累加后取出，返回一个 reference；后置式取出后累加，返回一个 const 对象；处理用户定制类型时，应该尽可能使用前置式 increment；后置式的实现应以其前置式兄弟为基础） 千万不要重载 &amp;amp;&amp;amp;，|| 和 , 操作符（&amp;amp;&amp;amp; 与 || 的重载会用 “函数调用语义” 取代 “骤死式语义”；, 的重载导致不能保证左侧表达式一定比右侧表达式更早被评估） 了解各种不同意义的 new 和 delete（new operator、operator new、placement new、operator new[]；delete operator、operator delete、destructor、operator delete[]） 利用 destructors 避免泄漏资源（在 destructors 释放资源可以避免异常时的资源泄漏） 在 constructors 内阻止资源泄漏（由于 C++ 只会析构已构造完成的对象，因此在构造函数可以使用 try&amp;hellip;catch 或者 auto_ptr（以及与之相似的 classes） 处理异常时资源泄露问题） 禁止异常流出 destructors 之外（原因：一、避免 terminate 函数在 exception 传播过程的栈展开（stack-unwinding）机制种被调用；二、协助确保 destructors 完成其应该完成的所有事情） 了解 “抛出一个 exception” 与 “传递一个参数” 或 “调用一个虚函数” 之间的差异（第一，exception objects 总是会被复制（by pointer 除外），如果以 by value 方式捕捉甚至被复制两次，而传递给函数参数的对象则不一定得复制；第二，“被抛出成为 exceptions” 的对象，其被允许的类型转换动作比 “被传递到函数去” 的对象少；第三，catch 子句以其 “出现于源代码的顺序” 被编译器检验对比，其中第一个匹配成功者便执行，而调用一个虚函数，被选中执行的是那个 “与对象类型最佳吻合” 的函数） 以 by reference 方式捕获 exceptions（可避免对象删除问题、exception objects 的切割问题，可保留捕捉标准 exceptions 的能力，可约束 exception object 需要复制的次数） 明智运用 exception specifications（exception specifications 对 “函数希望抛出什么样的 exceptions” 提供了卓越的说明；也有一些缺点，包括编译器只对它们做局部性检验而很容易不经意地违反，与可能会妨碍更上层的 exception 处理函数处理未预期的 exceptions） 了解异常处理的成本（粗略估计，如果使用 try 语句块，代码大约整体膨胀 5%-10%，执行速度亦大约下降这个数；因此请将你对 try 语句块和 exception specifications 的使用限制于非用不可的地点，并且在真正异常的情况下才抛出 exceptions） 谨记 80-20 法则（软件的整体性能几乎总是由其构成要素（代码）的一小部分决定的，可使用程序分析器（program profiler）识别出消耗资源的代码） 考虑使用 lazy evaluation（缓式评估）（可应用于：Reference Counting（引用计数）来避免非必要的对象复制、区分 operator[] 的读和写动作来做不同的事情、Lazy Fetching（缓式取出）来避免非必要的数据库读取动作、Lazy Expression Evaluation（表达式缓评估）来避免非必要的数值计算动作） 分期摊还预期的计算成本（当你必须支持某些运算而其结构几乎总是被需要，或其结果常常被多次需要的时候，over-eager evaluation（超急评估）可以改善程序效率） </description>
+    </item>
+    
+    <item>
+      <title>git代理</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/git%E4%BB%A3%E7%90%86/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/git%E4%BB%A3%E7%90%86/</guid>
+      <description>git 设置和取消代理 设置如下： git config --global https.proxy http://127.0.0.1:1080 git config --global https.proxy https://127.0.0.1:1080 git config --global http.proxy &amp;#39;socks5://127.0.0.1:1080&amp;#39; git config --global https.proxy &amp;#39;socks5://127.0.0.1:1080&amp;#39; 取消 git config --global --unset http.proxy git config --global --unset https.proxy </description>
+    </item>
+    
+    <item>
+      <title>javascript学习note</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/javascript%E5%AD%A6%E4%B9%A0note/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/javascript%E5%AD%A6%E4%B9%A0note/</guid>
+      <description>js 语法 js 语法学习demo js 作为一个脚本语言，语法学习简单。其中 typeof 操作符较为有意思，无类型语言竟然还有类型检查机制，回头给自制语言添加一个 typeof 关键字。js 的 null 和 true/false 为保留关键字，自制语言的 null 和 true/false 也可设置为关键字，直接解析成 0/1
+var &amp;amp; let &amp;amp; const let 声明的变量只在 let 命令所在的代码块内有效 const 声明一个只读的常量，一旦声明，常量的值就不能改变
+for 循环{}中多用 let
+for&amp;hellip;in &amp;amp; for&amp;hellip;of 在循环对象属性的时候，使用 for…in，for…in 循环得到的是 key 在遍历数组的时候的时候使用 for…of，for…of 循环得到的是 value
+for (let index in aArray) { console.log(aArray[index]); } for (let value of aArray) { console.log(value); } &amp;raquo; &amp;amp; &amp;raquo;&amp;gt; 运算符&amp;raquo;&amp;gt;执行无符号右移位运算。它把无符号的 32 位整数所有数位整体右移。对于无符号数或正数右移运算，无符号右移与有符号右移运算的结果是相同的
+console.log(1000 &amp;gt;&amp;gt; 8); //返回值3 console.</description>
+    </item>
+    
+    <item>
+      <title>macos自用配置</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/macos%E8%87%AA%E7%94%A8%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/macos%E8%87%AA%E7%94%A8%E9%85%8D%E7%BD%AE/</guid>
+      <description>macos 自用配置 浏览器——google chrome
+翻墙——v2rayU
+终端——iterm2
+笔记——typora
+git tool——sourcetree
+开发环境 最先安装完成 Xcode，然后
+xcode-select --install 配置常用开发环境（其中 python3 version 3.8，需 brew install python@3.9）
+安装 homebrewcn /bin/zsh -c &amp;#34;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&amp;#34; 安装常用工具 python、node、yarn、ccls、fzf、ranger、typora、sourcetree、qt-creator、autojump、thefuck、visual-studio-code、neovim、microsoft-remote-desktop，只需要分别
+brew install #+ 以上包名 安装过程中部分包会提示在.zshrc 中添加配置，自行添加
+修改 pip 源 mkdir ~/.pip vim ~/.pip/pip.conf [global] index-url = https://pypi.tuna.tsinghua.edu.cn/simple [install] trusted-host = https://pypi.tuna.tsinghua.edu.cn 升级 pip pip3 install --upgrade pip 安装 pygments、pynvim pip install -g pygments pip install -g pynvim 修改 npm、yarn 源 npm config set registry https://registry.</description>
+    </item>
+    
+    <item>
+      <title>manjaro kde安装后的配置</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/manjaro-kde%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/manjaro-kde%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E9%85%8D%E7%BD%AE/</guid>
+      <description>manjaro kde 安装后的配置 启动项 sudo update-grub 镜像源（选择清华源） sudo pacman-mirrors -i -c China -m rank sudo pacman -Syy sudo nano /etc/pacman.conf [archlinuxcn] SigLevel = Optional TrustedOnly Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch sudo pacman -S archlinuxcn-keyring sudo apcman -Syyu 安装软件 yay sudo pacman -S yay base-devel yay --save --aururl &amp;#34;https://aur.tuna.tsinghua.edu.cn&amp;#34; git yay -S git git config --global user.name &amp;#39;lws597&amp;#39; git config --global user.email &amp;#39;1320949958@qq.com&amp;#39; sudo vim /etc/hosts 52.74.223.119 github.com 151.101.77.194 github.global.ssl.fastly.net 151.101.76.133 raw.githubusercontent.com github 密钥导入 ssh-keygen cat .</description>
+    </item>
+    
+    <item>
+      <title>newcoder_cpp</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/newcoder-cpp/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/newcoder-cpp/</guid>
+      <description>niuke interview 基本语言 请说一下 C/C++ 中指针和引用的区别？ 参考回答：
+指针有自己的一块空间，而引用只是一个别名；
+使用 sizeof 看一个指针的大小是 4，而引用则是被引用对象的大小；
+指针可以被初始化为 NULL，而引用必须被初始化且必须是一个已有对象 的引用；
+作为参数传递时，指针需要被解引用才可以对对象进行操作，而直接对引 用的修改都会改变引用所指向的对象；
+可以有 const 指针，但是没有 const 引用；
+指针在使用中可以指向其它对象，但是引用只能是一个对象的引用，不能 被改变；
+指针可以有多级指针（**p），而引用至于一级；
+指针和引用使用++运算符的意义不一样；
+如果返回动态内存分配的对象或者内存，必须使用指针，引用可能引起内存泄露。
+请你回答一下野指针是什么？ 参考回答：
+野指针就是指向一个已删除的对象或者未申请访问受限内存区域的指针</description>
+    </item>
+    
+    <item>
+      <title>note1</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/note1/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/note1/</guid>
+      <description>DAY01 更新源 打开终端（Ctrl+Alt+T），执行命令 sudo gedit /etc/apt/sources.list 将文本框的内容删除，粘贴以下内容,保存并退出 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse deb-src http://mirrors.</description>
+    </item>
+    
+    <item>
+      <title>note2</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/note2/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/note2/</guid>
+      <description>DAY03 Linux 极简入门 文件与目录的管理 命令 功能 ls 显示文件及目录信息 cp 拷贝 rm 删除 mv 移动 cp 拷贝 cp [irapdslu] 选项
+-i 若文件存在，询问用户 -r 递归复制 -a pdr 的集合 -p 连同文件属性一起拷贝 -d 若源文件为连接文件的属性，则复制连接文件的属性 -s 拷贝为软连接 -l 拷贝为硬连接 -u 源文件比目的文件新才拷贝 rm 删除 rm [irf] &amp;lt;dir_or_file&amp;gt;
+选项
+-i 互动模式 -r 递归删除 -f force mv 移动 mv [ifu] &amp;lt;source&amp;hellip;&amp;gt; mv source1 source2 souce3 dir 选项
+-i 互动模式 -f force -u 源文件更新才会移动 文件内容的查阅 命令 功能 cat 正向连接读 tac 反向连接读 nl 输出行号显示文件 more 一页一页的显示文件内容 less 与 more 相似，但是可以上下翻看 head 只看头几行 tail 只看末尾几行 cat 正向连续读 cat [-AbEnTv] 选项:</description>
+    </item>
+    
+    <item>
+      <title>note3</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/note3/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/note3/</guid>
+      <description>DAY04 使用 github 管理代码 创建一个空目录 mkdir hzoj cd hzoj pwd 把目录变成 git 仓库 git init 把文件添加到仓库 git add * 把文件提交到仓库 git commit * 查看结果 git status 把本地库的所有内容推送到远程库上 git remote add origin git@github.com:lws597/HZOJ.git git push -u origin master </description>
+    </item>
+    
+    <item>
+      <title>note4</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/note4/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/note4/</guid>
+      <description>DAY05 输出函数说明 printf 函数
+头文件:stdio.h 原型:int printf(const char *format,&amp;hellip;); format:格式控制字符串 &amp;hellip;:可变参数列表 返回值:输出字符类型 输出函数说明 scanf 函数
+头文件:stdio.h 原型:int scanf(const char *format,&amp;hellip;); format:格式控制字符 &amp;hellip;:可变参数列表 返回值:成功读入列表 请使用 printf 函数,求解一个数字 n 的十进制表示的数字位数
+#include&amp;lt;stdio.h&amp;gt; int main(){ int n; while(scanf(&amp;#34;%d&amp;#34;,&amp;amp;n)!=EOF){ printf(&amp;#34; has %d digits\n&amp;#34;,printf(&amp;#34;%d&amp;#34;,n)); } return 0; } 请写一个程序,读入一个行字符串(可能包含空格),输出这个字符串中字符的数量
+#include&amp;lt;stdio.h&amp;gt; int main(){ char str[100]; while(scanf(&amp;#34;%[^\n]s&amp;#34;,str)!=EOF) { getchar(); printf(&amp;#34; has %d chars\n&amp;#34;,printf(&amp;#34;%s&amp;#34;,str)); } return 0; } sprintf 和 fprintf 代码演示 #include &amp;lt;stdio.h&amp;gt; #define swap(a, b) { \ __typeof(a) temp = a;\ a = b, b = temp; \ } int main() { printf(&amp;#34;%c\n&amp;#34;, 97); int n; scanf(&amp;#34;%d&amp;#34;, &amp;amp;n); printf(&amp;#34;%04d\n&amp;#34;, n); char str[100], buff[100], *p = str, *q = buff; sprintf(str, &amp;#34;%d.</description>
+    </item>
+    
+    <item>
+      <title>printf</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/printf/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/printf/</guid>
+      <description>printf 输出颜色和 ANSI 控制码(高亮,下划线,闪烁,光标位置,清屏等)
+颜色：
+#define NONE &amp;ldquo;/033[m&amp;rdquo;
+#define RED &amp;ldquo;/033[0;32;31m&amp;rdquo;
+#define LIGHT_RED &amp;ldquo;/033[1;31m&amp;rdquo;
+#define GREEN &amp;ldquo;/033[0;32;32m&amp;rdquo;
+#define LIGHT_GREEN &amp;ldquo;/033[1;32m&amp;rdquo;
+#define BLUE &amp;ldquo;/033[0;32;34m&amp;rdquo;
+#define LIGHT_BLUE &amp;ldquo;/033[1;34m&amp;rdquo;
+#define DARY_GRAY &amp;ldquo;/033[1;30m&amp;rdquo;
+#define CYAN &amp;ldquo;/033[0;36m&amp;rdquo;
+#define LIGHT_CYAN &amp;ldquo;/033[1;36m&amp;rdquo;
+#define PURPLE &amp;ldquo;/033[0;35m&amp;rdquo;
+#define LIGHT_PURPLE &amp;ldquo;/033[1;35m&amp;rdquo;
+#define BROWN &amp;ldquo;/033[0;33m&amp;rdquo;
+#define YELLOW &amp;ldquo;/033[1;33m&amp;rdquo;
+#define LIGHT_GRAY &amp;ldquo;/033[0;37m&amp;rdquo;
+#define WHITE &amp;ldquo;/033[1;37m&amp;rdquo;
+比如：
+printf(&amp;quot;/033[31m ####&amp;mdash;&amp;ndash;&amp;gt;&amp;gt; /033[32m&amp;quot; &amp;ldquo;hello/n&amp;rdquo; &amp;ldquo;/033[m&amp;rdquo;)
+int main()
+{
+printf( CYAN &amp;ldquo;current function is %s &amp;quot; GREEN &amp;quot; file line is %d/n&amp;rdquo; NONE,</description>
+    </item>
+    
+    <item>
+      <title>RBTree</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/rbtree/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/rbtree/</guid>
+      <description>RedBlack_Tree 五个条件 节点非黑即红 根节点是黑色的 叶节点(NIL)是黑色的 如果一个节点是红色的，则它的两个子节点都是黑色的 从根节点出发到所有叶节点路径上，黑色节点数量相同 最短路径全黑，节点数 a，最长路径有相同多个黑色节点（条件 5）
+，红色节点不能连续（条件 4），节点数 2a
+调整策略 插入节点站在祖父节点看
+删除调整站在父节点看
+插入调整 用带有两个黑色的 NIL 的新节点替换 NIL 叶节点
+为了方便调整，新结点初始为红色（黑色节点影响条件 5）
+情况一 插入节点的父节点是黑色
+直接插入
+情况二 插入节点的父节点和叔节点都是红色
+父节点、叔节点染成黑色，祖父节点染成红色
+情况三 LL 插入节点的父节点是红色，叔节点是黑色，插入节点是父节点的左孩子，父节点是祖父节点的左孩子
+祖父节点右旋，祖父节点染成红色，父节点染成黑色
+情况四 LR 插入节点的父节点是红色，叔节点是黑色，插入节点是父节点的右孩子，父节点是祖父节点的左孩子
+父节点左旋，转换为情况三（祖父节点右旋，祖父节点染成红色，父节点染成黑色）
+删除调整 情况一 兄弟节点是红色
+父节点左旋，父节点染成红色，兄弟节点染成黑色
+情况二 父节点、兄弟节点和兄弟节点的子节点都是黑色
+父节点左旋，父节点染成红色
+情况三 父节点红色，兄弟节点和兄弟节点的子节点都是黑色
+父节点左旋
+情况四 父节点任意颜色，兄弟节点的右儿子红色，删除节点是父节点的左儿子
+父节点左旋，交换父节点、兄弟节点的颜色，兄弟节点的右孩子染成黑色
+情况五 父节点任意颜色，兄弟节点的左儿子红色，删除节点是父节点的左儿子
+兄弟节点染成红色，兄弟节点的左儿子染成黑色，兄弟节点右旋，转换为情况四</description>
+    </item>
+    
+    <item>
+      <title>socket</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/socket/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/socket/</guid>
+      <description>我们深谙信息交流的价值，那网络中进程之间如何通信，如我们每天打开浏览器浏览网页时，浏览器的进程怎么与 web 服务器通信的？当你用 QQ 聊天时，QQ 进程怎么与服务器或你好友所在的 QQ 进程通信？这些都得靠 socket？那什么是 socket？socket 的类型有哪些？还有 socket 的基本函数，这些都是本文想介绍的。本文的主要内容如下：
+1、网络中进程之间如何通信？ 2、Socket 是什么？ 3、socket 的基本操作 3.1、socket()函数 3.2、bind()函数 3.3、listen()、connect()函数 3.4、accept()函数 3.5、read()、write()函数等 3.6、close()函数 4、socket 中 TCP 的三次握手建立连接详解 5、socket 中 TCP 的四次握手释放连接详解 1、网络中进程之间如何通信？ 本地的进程间通信（IPC）有很多种方式，但可以总结为下面 4 类：
+消息传递（管道、FIFO、消息队列） 同步（互斥量、条件变量、读写锁、文件和写记录锁、信号量） 共享内存（匿名的和具名的） 远程过程调用（Solaris 门和 Sun RPC） 但这些都不是本文的主题！我们要讨论的是网络中进程之间如何通信？首要解决的问题是如何唯一标识一个进程，否则通信无从谈起！在本地可以通过进程 PID 来唯一标识一个进程，但是在网络中这是行不通的。其实 TCP/IP 协议族已经帮我们解决了这个问题，网络层的“ip 地址”可以唯一标识网络中的主机，而传输层的“协议+端口”可以唯一标识主机中的应用程序（进程）。这样利用三元组（ip 地址，协议，端口）就可以标识网络的进程了，网络中的进程通信就可以利用这个标志与其它进程进行交互。
+使用 TCP/IP 协议的应用程序通常采用应用编程接口：UNIX BSD 的套接字（socket）和 UNIX System V 的 TLI（已经被淘汰），来实现网络进程之间的通信。就目前而言，几乎所有的应用程序都是采用 socket，而现在又是网络时代，网络中进程通信是无处不在，这就是我为什么说“一切皆 socket”。
+2、什么是 Socket？ 上面我们已经知道网络中的进程是通过 socket 来通信的，那什么是 socket 呢？socket 起源于 Unix，而 Unix/Linux 基本哲学之一就是“一切皆文件”，都可以用“打开 open –&amp;gt; 读写 write/read –&amp;gt; 关闭 close”模式来操作。我的理解就是 Socket 就是该模式的一个实现，socket 即是一种特殊的文件，一些 socket 函数就是对其进行的操作（读/写 IO、打开、关闭），这些函数我们在后面进行介绍。</description>
+    </item>
+    
+    <item>
+      <title>STL</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/stl/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/stl/</guid>
+      <description>Interview Q&amp;amp;A STL B 树（B-tree）、B+ 树（B+-tree） 特点 一般化的二叉查找树（binary search tree） “矮胖”，内部（非叶子）节点可以拥有可变数量的子节点（数量范围预先定义好） 应用 大部分文件系统、数据库系统都采用 B 树、B+树作为索引结构 区别 B+树中只有叶子节点会带有指向记录的指针（ROWID），而 B 树则所有节点都带有，在内部节点出现的索引项不会再出现在叶子节点。 B+树中所有叶子节点都是通过指针连接在一起，而 B 树不会。 B 树的优点 对于在内部节点的数据，可直接得到，不必根据叶子节点来定位。 B+树的优点 非叶子节点不会带上 ROWID，这样，一个块中可以容纳更多的索引项，一是可以降低树的高度。二是一个内部节点可以定位更多的叶子节点。 叶子节点之间通过指针来连接，范围扫描将十分简单，而对于 B 树来说，则需要在叶子节点和内部节点不停的往返移动。 STL 容器 容器 底层数据结构 时间复杂度 有无序 可不可重复 其他 array 数组 随机读改 O(1) 无序 可重复 支持随机访问 vector 数组 随机读改、尾部插入、尾部删除 O(1) 头部插入、头部删除 O(n) 无序 可重复 支持随机访问 deque 双端队列 头尾插入、头尾删除 O(1) 无序 可重复 一个中央控制器 + 多个缓冲区，支持首尾快速增删，支持随机访问 forward_list 单向链表 插入、删除 O(1) 无序 可重复 不支持随机访问 list 双向链表 插入、删除 O(1) 无序 可重复 不支持随机访问 stack deque / list 顶部插入、顶部删除 O(1) 无序 可重复 deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时 queue deque / list 尾部插入、头部删除 O(1) 无序 可重复 deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时 priority_queue vector + max-heap 插入、删除 O(log2n) 有序 可重复 vector 容器+heap 处理规则 set 红黑树 插入、删除、查找 O(log2n) 有序 不可重复 multiset 红黑树 插入、删除、查找 O(log2n) 有序 可重复 map 红黑树 插入、删除、查找 O(log2n) 有序 不可重复 multimap 红黑树 插入、删除、查找 O(log2n) 有序 可重复 unordered_set 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 不可重复 unordered_multiset 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 可重复 unordered_map 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 不可重复 unordered_multimap 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 可重复 </description>
+    </item>
+    
+    <item>
+      <title>swift学习note</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/swift%E5%AD%A6%E4%B9%A0note/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/swift%E5%AD%A6%E4%B9%A0note/</guid>
+      <description>Swift 学习 note Swift 引入 使用 import 语句来引入任何的 Objective-C 框架（或 C 库）到 Swift 程序中。例如 import cocoa 语句导入了使用了 Cocoa 库和 API，可以在 Swift 程序中使用它们。
+Cocoa 本身由 Objective-C 语言写成，Objective-C 又是 C 语言的严格超集，所以在 Swift 应用中可以很简单的混入 C 语言代码，甚至是 C++ 代码。
+分号 Swift 不要求在每行语句的结尾使用分号(;)，但在同一行书写多条语句时，必须用分号隔开：
+import Cocoa var str = &amp;#34;Hello World&amp;#34;; print (str) 词法分析或语法分析时应该直接忽略了分号(;)
+标识符 如果一定要使用关键字作为标识符，可以在关键字前后添加重音符号（`），例如：
+let `class` = &amp;#34;Runoob&amp;#34; 比 php 中的标识符前加@的处理更高级
+Swift 空格 Swift 语言并不是像 C/C++，Java 那样完全忽视空格，Swift 对空格的使用有一定的要求，但是又不像 Python 对缩进的要求那么严格。
+在 Swift 中，运算符不能直接跟在变量或常量的后面。例如下面的代码会报错：
+let a=1 + 2 错误信息是：</description>
+    </item>
+    
+    <item>
+      <title>swift学习note——高级篇</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/swift%E5%AD%A6%E4%B9%A0note%E9%AB%98%E7%BA%A7%E7%AF%87/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/swift%E5%AD%A6%E4%B9%A0note%E9%AB%98%E7%BA%A7%E7%AF%87/</guid>
+      <description>Swift 学习 note——高级篇
+Swift 闭包
+语法
+以下定义了一个接收参数并返回指定类型的闭包语法：
+{(parameters) -&amp;gt; return type in statements } 实例
+import Cocoa let divide = {(val1: Int, val2: Int) -&amp;gt; Int in return val1 / val2 } let result = divide(200, 20) print (result) 闭包表达式
+闭包表达式是一种利用简洁语法构建内联闭包的方式。 闭包表达式提供了一些语法优化，使得撰写闭包变得简单明了
+sorted 方法
+Swift 标准库提供了名为 sorted(by:) 的方法，会根据您提供的用于排序的闭包函数将已知类型数组中的值进行排序。
+排序完成后，sorted(by:) 方法会返回一个与原数组大小相同，包含同类型元素且元素已正确排序的新数组。原数组不会被 sorted(by:) 方法修改。
+sorted(by:)方法需要传入两个参数：
+已知类型的数组 闭包函数，该闭包函数需要传入与数组元素类型相同的两个值，并返回一个布尔类型值来表明当排序结束后传入的第一个参数排在第二个参数前面还是后面。如果第一个参数值出现在第二个参数值前面，排序闭包函数需要返回 true，反之返回 false 实例
+import Cocoa let names = [&amp;#34;AT&amp;#34;, &amp;#34;AE&amp;#34;, &amp;#34;D&amp;#34;, &amp;#34;S&amp;#34;, &amp;#34;BE&amp;#34;] // 使用普通函数(或内嵌函数)提供排序功能,闭包函数类型需为(String, String) -&amp;gt; Bool。 func backwards(s1: String, s2: String) -&amp;gt; Bool { return s1 &amp;gt; s2 } var reversed = names.</description>
+    </item>
+    
+    <item>
+      <title>vim查找&amp;替换</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/vim%E6%9F%A5%E6%89%BE-%E6%9B%BF%E6%8D%A2/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/vim%E6%9F%A5%E6%89%BE-%E6%9B%BF%E6%8D%A2/</guid>
+      <description>vim 中的查找与替换 1.查找 在 normal 模式下按下/即可进入查找模式，输入要查找的字符串并按下回车。 Vim 会跳转到第一个匹配。按下n查找下一个，按下N查找上一个。
+Vim 查找支持正则表达式，例如/vim$匹配行尾的&amp;quot;vim&amp;quot;。 需要查找特殊字符需要转义，例如/vim\$匹配&amp;quot;vim$&amp;quot;。
+2.大小写敏感查找 在查找模式中加入\c表示大小写不敏感查找，\C表示大小写敏感查找。例如：
+/foo\c 将会查找所有的&amp;quot;foo&amp;quot;,&amp;quot;FOO&amp;quot;,&amp;quot;Foo&amp;quot;等字符串。
+3.大小写敏感配置 Vim 默认采用大小写敏感的查找，为了方便我们常常将其配置为大小写不敏感：
+&amp;#34; 设置默认进行大小写不敏感查找 set ignorecase &amp;#34; 如果有一个大写字母，则切换到大小写敏感查找 set smartcase 将上述设置粘贴到你的~/.vimrc，重新打开 Vim 即可生效
+4.查找当前单词 在 normal 模式下按下*即可查找光标所在单词（word）， 要求每次出现的前后为空白字符或标点符号。例如当前为foo， 可以匹配foo bar中的foo，但不可匹配foobar中的foo。 这在查找函数名、变量名时非常有用。
+按下g*即可查找光标所在单词的字符序列，每次出现前后字符无要求。 即foo bar和foobar中的foo均可被匹配到。
+5.查找与替换 :s（substitute）命令用来查找和替换字符串。语法如下：
+:{作用范围}s/{目标}/{替换}/{替换标志} 例如:%s/foo/bar/g会在全局范围(%)查找foo并替换为bar，所有出现都会被替换（g）
+6.作用范围 作用范围分为当前行、全文、选区等等。
+当前行：
+:s/foo/bar/g 全文：
+:%s/foo/bar/g 选区，在 Visual 模式下选择区域后输入:，Vim 即可自动补全为 :&#39;&amp;lt;,&#39;&amp;gt;。
+:&amp;#39;&amp;lt;,&amp;#39;&amp;gt;s/foo/bar/g 2-11 行：
+:5,12s/foo/bar/g 当前行.与接下来两行+2：
+:.,+2s/foo/bar/g 替换标志 上文中命令结尾的g即是替换标志之一，表示全局global替换（即替换目标的所有出现）。 还有很多其他有用的替换标志：
+空替换标志表示只替换从光标位置开始，目标的第一次出现：
+:%s/foo/bar i表示大小写不敏感查找，I表示大小写敏感：
+:%s/foo/bar/i # 等效于模式中的\c（不敏感）或\C（敏感） :%s/foo\c/bar c表示需要确认，例如全局查找&amp;quot;foo&amp;quot;替换为&amp;quot;bar&amp;quot;并且需要确认：</description>
+    </item>
+    
+    <item>
+      <title>wps实习四个月后</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/wps%E5%AE%9E%E4%B9%A0%E5%9B%9B%E4%B8%AA%E6%9C%88%E5%90%8E/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/wps%E5%AE%9E%E4%B9%A0%E5%9B%9B%E4%B8%AA%E6%9C%88%E5%90%8E/</guid>
+      <description>wps 实习四个月后的一些思考和新规划 wps 的实习已经告一段落，玩了一段时间，迷茫了一段时间，整理代码一段时间，现在写一篇思考。
+wps 实习内容 在 wps mac 组实习四个月，接手的需求有：
+移植 pc 功能 Excel 批量计算 交互功能 空格键进入图片预览 双指滑动（滚轮）移动图片 双指拍&amp;amp;双指捏缩放图片 双指旋旋转 wps 对象 双指/右键拖复制 wps 对象 优化需求 多级窗口 modal 规范 新建文本框默认设置添加选项 复制图片清晰度优化 Excel 单个单元格复制形式改为纯文本 半成品需求 光标 icon 替换为高清图 Excel 底部 sheet 平滑移动 文本框添加只复制文本功能 三指捏需求 感觉这些需求都挺无聊的，所以才交给一个实习生写吧。多级窗口 modal 规范，该需求阅读了大量 qt 源码。触控板扩展需求考察了一堆开源代码，学习了 objective-c 和 swift。也就这两个需求有点意思。
+实习过程技术成长 刚入职先学习公司代码规范、工程规范，和一些工作流程。第一次用到心心念念的 mac，也花了点时间来熟悉，用过很多发行版 Linux，上手 mac 也很快。wps 产品由用 qt+c/cpp 完成，技术方面先学习 qt。第一个需求移植 pc 已有的 Excel 批量计算功能，需要添加的代码都在一起，不需要调试，直接上手敲码就好，qt 方面也只需要学习 dialog 的创建，和事件的处理。第二个需求空格键进入图片预览，该有的 api 都有，但需要找到适合修改的代码块，因为不会调试所以花了一个多星期，还是最后组长教会了我调试来定位代码和了解功能的执行流程。后面都是一些调 api 的需求，以及学会 qt 某部分的使用就能写的需求。多级窗口 modal 规范需求，考察了很久才定位到 qt 的 bug（pc 没问题，mac 有问题，应该第一时间就测试一下是不是 qt 的 bug），为解决 bug 阅读了大量 qt 源码，对 qt 的一些特性有了更深了了解，学习框架还是得直接读源码。qt 源码面向对象，以 c++11 为标准（qt6 以 c++17 为标准），范型编程到处都是，可读性很好，比 wps 代码好的多。离职前的需求是 mac 触控板相关的，网上资料很少，只有 github 上有几个项目，为了看懂代码就去学了 objective-c，顺便学了 swift（语法方面 c/cpp yyds，oc 真反人类，swift 也习惯不了）。做了一些考察才知道 apple 有 Private API 这个东西，mac 触控板增强软件都用了这部分 api，wps 不可能用的，产品的一些需求也就得打回了。不用写多指需求了，但多指滑、多指捏在继续考察，应该可以通过触控点的坐标识别手势，但自定义手势多了可能就不能做到精准识别了。</description>
+    </item>
+    
+    <item>
+      <title>后端开发面试题</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+      <description>后端开发面试题 后端开发面试知识点大纲： 语言类（C++）： 关键字作用解释： volatile 作用
+Volatile关键词的第一个特性：易变性。所谓的易变性，在汇编层面反映出来，就是两条语句，下一条语句不会直接使用上一条语句对应的volatile变量的寄存器内容，而是重新从内存中读取。 Volatile关键词的第二个特性：“不可优化”特性。volatile告诉编译器，不要对我这个变量进行各种激进的优化，甚至将变量直接消除，保证程序员写在代码中的指令，一定会被执行。 Volatile关键词的第三个特性：”顺序性”，能够保证Volatile变量间的顺序性，编译器不会进行乱序优化。 C/C++ Volatile变量，与非Volatile变量之间的操作，是可能被编译器交换顺序的。C/C++ Volatile变量间的操作，是不会被编译器交换顺序的。哪怕将所有的变量全部都声明为volatile，哪怕杜绝了编译器的乱序优化，但是针对生成的汇编代码，CPU有可能仍旧会乱序执行指令，导致程序依赖的逻辑出错，volatile对此无能为力 针对这个多线程的应用，真正正确的做法，是构建一个happens-before语义。 [C/C++ Volatile关键词深度剖析](http://hedengcheng.com/?p=725) static
+控制变量的存储方式和可见性。 (1)修饰局部变量 一般情况下，对于局部变量是存放在栈区的，并且局部变量的生命周期在该语句块执行结束时便结束了。但是如果用static进行修饰的话，该变量便存放在静态数据区，其生命周期一直持续到整个程序执行结束。但是在这里要注意的是，虽然用static对局部变量进行修饰过后，其生命周期以及存储空间发生了变化，但是其作用域并没有改变，其仍然是一个局部变量，作用域仅限于该语句块。 (2)修饰全局变量 对于一个全局变量，它既可以在本源文件中被访问到，也可以在同一个工程的其它源文件中被访问(只需用extern进行声明即可)。用static对全局变量进行修饰改变了其作用域的范围，由原来的整个工程可见变为本源文件可见。 (3)修饰函数 用static修饰函数的话，情况与修饰全局变量大同小异，就是改变了函数的作用域。 (4)C++中的static 如果在C++中对类中的某个函数用static进行修饰，则表示该函数属于一个类而不是属于此类的任何特定对象；如果对类中的某个变量进行static修饰，表示该变量为类以及其所有的对象所有。它们在存储空间中都只存在一个副本。可以通过类和对象去调用。 const 的含义及实现机制
+const名叫常量限定符，用来限定特定变量，以通知编译器该变量是不可修改的。习惯性的使用const，可以避免在函数中对某些不应修改的变量造成可能的改动。 (1)const修饰基本数据类型 1.const修饰一般常量及数组 基本数据类型，修饰符const可以用在类型说明符前，也可以用在类型说明符后，其结果是一样的。在使用这些常量的时候，只要不改变这些常量的值便好。 2.const修饰指针变量*及引用变量&amp;amp; 如果const位于星号*的左侧，则const就是用来修饰指针所指向的变量，即指针指向为常量； 如果const位于星号的右侧，const就是修饰指针本身，即指针本身是常量。 (2)const应用到函数中, 1.作为参数的const修饰符 调用函数的时候，用相应的变量初始化const常量，则在函数体中，按照const所修饰的部分进行常量化,保护了原对象的属性。 [注意]：参数const通常用于参数为指针或引用的情况; 2.作为函数返回值的const修饰符 声明了返回值后，const按照&amp;quot;修饰原则&amp;quot;进行修饰，起到相应的保护作用。 (3)const在类中的用法 不能在类声明中初始化const数据成员。正确的使用const实现方法为：const数据成员的初始化只能在类构造函数的初始化表中进行 类中的成员函数：A fun4()const; 其意义上是不能修改所在类的的任何变量。 (4)const修饰类对象，定义常量对象 常量对象只能调用常量函数，别的成员函数都不能调用。 http://www.cnblogs.com/wintergrass/archive/2011/04/15/2015020.html extern
+在C语言中，修饰符extern用在变量或者函数的声明前，用来说明“此变量/函数是在别处定义的，要在此处引用”。 注意extern声明的位置对其作用域也有关系，如果是在main函数中进行声明的，则只能在main函数中调用，在其它函数中不能调用。其实要调用其它文件中的函数和变量，只需把该文件用#include包含进来即可，为啥要用extern？因为用extern会加速程序的编译过程，这样能节省时间。 在C++中extern还有另外一种作用，用于指示C或者C＋＋函数的调用规范。比如在C＋＋中调用C库函数，就需要在C＋＋程序中用extern “C”声明要引用的函数。这是给链接器用的，告诉链接器在链接的时候用C函数规范来链接。主要原因是C＋＋和C程序编译完成后在目标代码中命名规则不同，用此来解决名字匹配的问题。 宏定义和展开、内联函数区别，
+内联函数是代码被插入到调用者代码处的函数。如同 #define 宏，内联函数通过避免被调用的开销来提高执行效率，尤其是它能够通过调用（“过程化集成”）被编译器优化。 宏定义不检查函数参数，返回值什么的，只是展开，相对来说，内联函数会检查参数类型，所以更安全。	内联函数和宏很类似，而区别在于，宏是由预处理器对宏进行替代，而内联函数是通过编译器控制来实现的。而且内联函数是真正的函数，只是在需要用到的时候，内联函数像宏一样的展开，所以取消了函数的参数压栈，减少了调用的开销。 宏是预编译器的输入，然后宏展开之后的结果会送去编译器做语法分析。宏与函数等处于不同的级别，操作不同的实体。宏操作的是 token, 可以进行 token的替换和连接等操作，在语法分析之前起作用。而函数是语言中的概念，会在语法树中创建对应的实体，内联只是函数的一个属性。 对于问题：有了函数要它们何用？答案是：一：函数并不能完全替代宏，有些宏可以在当前作用域生成一些变量，函数做不到。二：内联函数只是函数的一种，内联是给编译器的提示，告诉它最好把这个函数在被调用处展开，省掉一个函数调用的开销（压栈，跳转，返回） 内联函数也有一定的局限性。就是函数中的执行代码不能太多了，如果，内联函数的函数体过大，一般的编译器会放弃内联方式，而采用普通的方式调用函数。这样，内联函数就和普通函数执行效率一样 内联函数必须是和函数体申明在一起，才有效。 [宏定义和内联函数区别](http://www.cnblogs.com/chengxuyuancc/archive/2013/04/04/2999844.html) 库函数实现： malloc,strcpy,strcmp 的实现，常用库函数实现，哪些库函数属于高危函数</description>
+    </item>
+    
+    <item>
+      <title>数据库面试点</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E7%82%B9/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E7%82%B9/</guid>
+      <description>数据库面试点 事务 4 个，acid（实现） 隔离操作 binlog、redolog、ondolog innodbe 和 myisim 掌握 三个特性（双次写、插入缓存、自适应） 锁 mvcc（乐观锁、悲观锁） 行锁（行锁、零件锁、间隙锁） 表锁 索引 数据结构（B+树、B 树、Hash 索引、全文本索引） 逻辑结构（主键、唯一、前缀、覆盖、联合、普通） 存储结构（聚集索引（innodbe）、排序索引（myisim））） 索引失效、索引优化、索引下推、索引回表 最左匹配 查询优化 小表匹配大表（in exist） 小表—&amp;gt;大表 order by group by 类型优化 分区分库分表、主从复制 </description>
+    </item>
+    
+    <item>
+      <title>类和对象1</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A11/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A11/</guid>
+      <description>类和对象 类型与变量 类型 变量 int a long long b char c double d float e 类型 = 类型数据 + 类型操作
+类与对象 类 对象 cat garfield dog odie people hug 访问权限 public 公共访问权限 private 私有访问权限 protected 受保护的访问权限 成员属性与方法 #include &amp;lt;iostream&amp;gt; using namespace std; struct A { int x, y; void echo() { cout &amp;lt;&amp;lt; &amp;#34;hello world a&amp;#34; &amp;lt;&amp;lt; endl; return ; } }; struct B { private: int x, y; public: void set_xy(int x, int y) { cout &amp;lt;&amp;lt; this &amp;lt;&amp;lt; endl; this-&amp;gt;x = x, this-&amp;gt;y = y; } void echo() { cout &amp;lt;&amp;lt; &amp;#34;hello world b&amp;#34; &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; y &amp;lt;&amp;lt; endl; return ; } }; int main() { A a; B b; a.</description>
+    </item>
+    
+    <item>
+      <title>类和对象2</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A12/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A12/</guid>
+      <description>类和对象 类属性与类方法 #include &amp;lt;iostream&amp;gt; using namespace std; class A { public : A(int x) { cout &amp;lt;&amp;lt; &amp;#34;class A&amp;#39;s constructor&amp;#34; &amp;lt;&amp;lt; endl; } }; class Point { public : Point(); Point(int x, int y); int x() const; int y() const; int x_cnt() const; void set_x(int x); void set_y(int y); static int output_cnt(); ~Point(); private : static int point_cnt; int __x, __y; mutable int __x_cnt; A __a; }; int Point::point_cnt = 0; int Point::output_cnt() { return Point::point_cnt; } Point::Point() : __x_cnt(0), __a(2) { Point::point_cnt += 1; } Point::Point(int x, int y) : __x(x), __y(y), __x_cnt(0), __a(4) { Point::point_cnt += 1; } Point::~Point() { Point::point_cnt -= 1; } int Point::x() const { this-&amp;gt;__x_cnt += 1; return this-&amp;gt;__x; } int Point::y() const { return this-&amp;gt;__y; } int Point::x_cnt() const { return this-&amp;gt;__x_cnt; } void Point::set_x(int x) { this-&amp;gt;__x = x; } void Point::set_y(int y) { this-&amp;gt;__x = y; } void func() { Point c, d; cout &amp;lt;&amp;lt; &amp;#34;func : &amp;#34; &amp;lt;&amp;lt; Point::output_cnt() &amp;lt;&amp;lt; endl; return ; } int main() { Point a(2, 3), b; const Point c(3, 4); cout &amp;lt;&amp;lt; a.</description>
+    </item>
+    
+    <item>
+      <title>类和对象3</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A13/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A13/</guid>
+      <description>类和对象 3 继承 面向对象程序设计中最重要的一个概念是继承。继承允许我们依据另一个类来定义一个类，这使得创建和维护一个应用程序变得更容易。这样做，也达到了重用代码功能和提高执行效率的效果。
+当创建一个类时，您不需要重新编写新的数据成员和成员函数，只需指定新建的类继承了一个已有的类的成员即可。这个已有的类称为基类，新建的类称为派生类。
+子类的访问权限 public protected private public yes yes yes protected yes yes no private no no no 对外的访问权限 public protected private public public protected private protected protected protected private private no no no 菱形继承（A-&amp;gt;D, B-&amp;gt;D, C-&amp;gt;(A，B)） class D{......}; class B: public D{......}; class A: public D{......}; class C: public B, public A{.....}; 这个继承会使 D 创建两个对象,要解决上面问题就要用虚拟继承格式
+格式：class 类名: virtual 继承方式 父类名
+class D{......}; class B: virtual public D{.</description>
+    </item>
+    
+    <item>
+      <title>类和对象4</title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A14/</link>
+      <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A14/</guid>
+      <description>类和对象 4 多态 多态按字面的意思就是多种形态。当类之间存在层次结构，并且类之间是通过继承关联时，就会用到多态。
+C++多态意味着调用成员函数时，会根据调用函数的对象的类型来执行不同的函数。
+虚函数 虚函数是在基类中使用关键字 virtual 声明的函数。在派生类中重新定义基类中定义的虚函数时，会告诉编译器不要静态链接到该函数。
+我们想要的是在程序中任意点可以根据所调用的对象类型来选择调用的函数，这种操作被称为动态链接，或后期绑定。
+纯虚函数 语义：子类肯定会有这个方法，而父类只能说“抱歉”
+应用场景：定义接口
+您可能想要在基类中定义虚函数，以便在派生类中重新定义该函数更好地适用于对象，但是您在基类中又不能对虚函数给出有意义的实现，这个时候就会用到纯虚函数。
+#include &amp;lt;iostream&amp;gt; #include &amp;lt;string&amp;gt; using namespace std; string rand_name(int n) { string name = &amp;#34;&amp;#34;; for (int i = 0; i &amp;lt; n; i++) { name = name + (char)(rand() % 26 + &amp;#39;A&amp;#39;); } return name; } class Animal { public: Animal(string name) : name(name) {} string get_name() {return this-&amp;gt;name;} virtual void run() { cout &amp;lt;&amp;lt; &amp;#34;I don&amp;#39;t know how to run.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/git-flight-rules/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/git-flight-rules/</guid>
+      <description>Git 飞行规则(Flight Rules) Copied from https://github.com/k88hudson/git-flight-rules
+什么是&amp;quot;飞行规则&amp;quot;? 这是一篇给宇航员（这里就是指使用 Git 的程序员们）的指南，用来指导问题出现后的应对之法。
+飞行规则(Flight Rules) 是记录在手册上的来之不易的一系列知识，记录了某个事情发生的原因，以及怎样一步一步的进行处理。本质上, 它们是特定场景的非常详细的标准处理流程。 [&amp;hellip;]
+自 20 世纪 60 年代初以来，NASA 一直在捕捉(capturing)我们的失误，灾难和解决方案, 当时水星时代(Mercury-era)的地面小组首先开始将“经验教训”收集到一个纲要(compendium)中，该纲现在已经有上千个问题情景，从发动机故障到破损的舱口把手到计算机故障，以及它们对应的解决方案。
+— Chris Hadfield, 一个宇航员的生活指南(An Astronaut&amp;rsquo;s Guide to Life)。
+这篇文章的约定 为了清楚的表述，这篇文档里的所有例子使用了自定义的 bash 提示，以便指示当前分支和是否有暂存的变化(changes)。分支名用小括号括起来，分支名后面跟的*表示暂存的变化(changes)。
+Table of Contents generated with DocToc
+编辑提交(editting commits) 我刚才提交了什么? 我的提交信息(commit message)写错了 我提交(commit)里的用户名和邮箱不对 我想从一个提交(commit)里移除一个文件 我想删除我的的最后一次提交(commit) 删除任意提交(commit) 我尝试推一个修正后的提交(amended commit)到远程，但是报错： 我意外的做了一次硬重置(hard reset)，我想找回我的内容 暂存(Staging) 我需要把暂存的内容添加到上一次的提交(commit) 我想要暂存一个新文件的一部分，而不是这个文件的全部 我想把在一个文件里的变化(changes)加到两个提交(commit)里 我想把暂存的内容变成未暂存，把未暂存的内容暂存起来 未暂存(Unstaged)的内容 我想把未暂存的内容移动到一个新分支 我想把未暂存的内容移动到另一个已存在的分支 我想丢弃本地未提交的变化(uncommitted changes) 我想丢弃某些未暂存的内容 分支(Branches) 我从错误的分支拉取了内容，或把内容拉取到了错误的分支 我想扔掉本地的提交(commit)，以便我的分支与远程的保持一致 我需要提交到一个新分支，但错误的提交到了 main 我想保留来自另外一个 ref-ish 的整个文件 我把几个提交(commit)提交到了同一个分支，而这些提交应该分布在不同的分支里 我想删除上游(upstream)分支被删除了的本地分支 我不小心删除了我的分支 我想删除一个分支 我想从别人正在工作的远程分支签出(checkout)一个分支 Rebasing 和合并(Merging) 我想撤销 rebase/merge 我已经 rebase 过, 但是我不想强推(force push) 我需要组合(combine)几个提交(commit) 安全合并(merging)策略 我需要将一个分支合并成一个提交(commit) 我只想组合(combine)未推的提交(unpushed commit) 检查是否分支上的所有提交(commit)都合并(merge)过了 交互式 rebase(interactive rebase)可能出现的问题 这个 rebase 编辑屏幕出现&amp;rsquo;noop&amp;rsquo; 有冲突的情况 Stash 暂存所有改动 暂存指定文件 暂存时记录消息 使用某个指定暂存 暂存时保留未暂存的内容 杂项(Miscellaneous Objects) 克隆所有子模块 删除标签(tag) 恢复已删除标签(tag) 已删除补丁(patch) 跟踪文件(Tracking Files) 我只想改变一个文件名字的大小写，而不修改内容 我想从 Git 删除一个文件，但保留该文件 配置(Configuration) 我想给一些 Git 命令添加别名(alias) 我想缓存一个仓库(repository)的用户名和密码 我不知道我做错了些什么 其它资源(Other Resources) 书(Books) 教程(Tutorials) 脚本和工具(Scripts and Tools) GUI 客户端(GUI Clients) 编辑提交(editting commits) 我刚才提交了什么?</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/mac-git%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/mac-git%E9%85%8D%E7%BD%AE/</guid>
+      <description>mac git 配置</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/mac-rust%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/mac-rust%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
+      <description>mac rust 开发环境配置</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/mac%E8%87%AA%E7%94%A8%E9%85%8D%E7%BD%AE2.0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/mac%E8%87%AA%E7%94%A8%E9%85%8D%E7%BD%AE2.0/</guid>
+      <description>mac 自用配置 2.0</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://xhwhis.github.io/hugo-blog/posts/oracle-cloud%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xhwhis.github.io/hugo-blog/posts/oracle-cloud%E9%83%A8%E7%BD%B2/</guid>
+      <description>Oracle Cloud 部署
+arm 上部署情 qinglong、vaultwarden、caddy、v2ray
+amd64 上部署 focalboard、appflowy、caddy（暂定）
+安装 podman
+dnf install -y podman 安装 qinglong、vaultwarden
+mkdir ql podman run -d --privileged --name qinglong -v $PWD/ql:/ql/data -p 5700:5700 --restart always docker.io/whyour/qinglong:latest mkdir vw podman run -d --privileged --name vaultwarden -v $PWD/vw/:/data/:Z -e ROCKET_PORT=8080 -p 8080:8080 --restart always docker.io/vaultwarden/server:latest mkdir maiark podman run -d --privileged --name maiark -v $PWD/maiark:/MaiARK -p 8082:8082 --restart always docker.io/kissyouhunter/maiark:latest 安装 caddy
+dnf install &amp;#39;dnf-command(copr)&amp;#39; dnf copr enable @caddy/caddy dnf install -y caddy firewall 配置</description>
+    </item>
+    
+  </channel>
+</rss>

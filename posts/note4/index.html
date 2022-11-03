@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>note4 | Whis&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="DAY05 输出函数说明 printf 函数
+头文件:stdio.h 原型:int printf(const char *format,&hellip;); format:格式控制字符串 &hellip;:可变参数列表 返回值:输出字符类型 输出函数说明 scanf 函数
+头文件:stdio.h 原型:int scanf(const char *format,&hellip;); format:格式控制字符 &hellip;:可变参数列表 返回值:成功读入列表 请使用 printf 函数,求解一个数字 n 的十进制表示的数字位数
+#include&lt;stdio.h&gt; int main(){ int n; while(scanf(&#34;%d&#34;,&amp;n)!=EOF){ printf(&#34; has %d digits\n&#34;,printf(&#34;%d&#34;,n)); } return 0; } 请写一个程序,读入一个行字符串(可能包含空格),输出这个字符串中字符的数量
+#include&lt;stdio.h&gt; int main(){ char str[100]; while(scanf(&#34;%[^\n]s&#34;,str)!=EOF) { getchar(); printf(&#34; has %d chars\n&#34;,printf(&#34;%s&#34;,str)); } return 0; } sprintf 和 fprintf 代码演示 #include &lt;stdio.h&gt; #define swap(a, b) { \ __typeof(a) temp = a;\ a = b, b = temp; \ } int main() { printf(&#34;%c\n&#34;, 97); int n; scanf(&#34;%d&#34;, &amp;n); printf(&#34;%04d\n&#34;, n); char str[100], buff[100], *p = str, *q = buff; sprintf(str, &#34;%d.">
+<meta name="author" content="">
+<link rel="canonical" href="https://xhwhis.github.io/hugo-blog/posts/note4/">
+<link crossorigin="anonymous" href="/hugo-blog/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css" integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/hugo-blog/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://xhwhis.github.io/hugo-blog/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://xhwhis.github.io/hugo-blog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://xhwhis.github.io/hugo-blog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://xhwhis.github.io/hugo-blog/apple-touch-icon.png">
+<link rel="mask-icon" href="https://xhwhis.github.io/hugo-blog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="note4" />
+<meta property="og:description" content="DAY05 输出函数说明 printf 函数
+头文件:stdio.h 原型:int printf(const char *format,&hellip;); format:格式控制字符串 &hellip;:可变参数列表 返回值:输出字符类型 输出函数说明 scanf 函数
+头文件:stdio.h 原型:int scanf(const char *format,&hellip;); format:格式控制字符 &hellip;:可变参数列表 返回值:成功读入列表 请使用 printf 函数,求解一个数字 n 的十进制表示的数字位数
+#include&lt;stdio.h&gt; int main(){ int n; while(scanf(&#34;%d&#34;,&amp;n)!=EOF){ printf(&#34; has %d digits\n&#34;,printf(&#34;%d&#34;,n)); } return 0; } 请写一个程序,读入一个行字符串(可能包含空格),输出这个字符串中字符的数量
+#include&lt;stdio.h&gt; int main(){ char str[100]; while(scanf(&#34;%[^\n]s&#34;,str)!=EOF) { getchar(); printf(&#34; has %d chars\n&#34;,printf(&#34;%s&#34;,str)); } return 0; } sprintf 和 fprintf 代码演示 #include &lt;stdio.h&gt; #define swap(a, b) { \ __typeof(a) temp = a;\ a = b, b = temp; \ } int main() { printf(&#34;%c\n&#34;, 97); int n; scanf(&#34;%d&#34;, &amp;n); printf(&#34;%04d\n&#34;, n); char str[100], buff[100], *p = str, *q = buff; sprintf(str, &#34;%d." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xhwhis.github.io/hugo-blog/posts/note4/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-27T22:59:11+08:00" />
+<meta property="article:modified_time" content="2022-03-27T22:59:11+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="note4"/>
+<meta name="twitter:description" content="DAY05 输出函数说明 printf 函数
+头文件:stdio.h 原型:int printf(const char *format,&hellip;); format:格式控制字符串 &hellip;:可变参数列表 返回值:输出字符类型 输出函数说明 scanf 函数
+头文件:stdio.h 原型:int scanf(const char *format,&hellip;); format:格式控制字符 &hellip;:可变参数列表 返回值:成功读入列表 请使用 printf 函数,求解一个数字 n 的十进制表示的数字位数
+#include&lt;stdio.h&gt; int main(){ int n; while(scanf(&#34;%d&#34;,&amp;n)!=EOF){ printf(&#34; has %d digits\n&#34;,printf(&#34;%d&#34;,n)); } return 0; } 请写一个程序,读入一个行字符串(可能包含空格),输出这个字符串中字符的数量
+#include&lt;stdio.h&gt; int main(){ char str[100]; while(scanf(&#34;%[^\n]s&#34;,str)!=EOF) { getchar(); printf(&#34; has %d chars\n&#34;,printf(&#34;%s&#34;,str)); } return 0; } sprintf 和 fprintf 代码演示 #include &lt;stdio.h&gt; #define swap(a, b) { \ __typeof(a) temp = a;\ a = b, b = temp; \ } int main() { printf(&#34;%c\n&#34;, 97); int n; scanf(&#34;%d&#34;, &amp;n); printf(&#34;%04d\n&#34;, n); char str[100], buff[100], *p = str, *q = buff; sprintf(str, &#34;%d."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://xhwhis.github.io/hugo-blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "note4",
+      "item": "https://xhwhis.github.io/hugo-blog/posts/note4/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "note4",
+  "name": "note4",
+  "description": "DAY05 输出函数说明 printf 函数\n头文件:stdio.h 原型:int printf(const char *format,\u0026hellip;); format:格式控制字符串 \u0026hellip;:可变参数列表 返回值:输出字符类型 输出函数说明 scanf 函数\n头文件:stdio.h 原型:int scanf(const char *format,\u0026hellip;); format:格式控制字符 \u0026hellip;:可变参数列表 返回值:成功读入列表 请使用 printf 函数,求解一个数字 n 的十进制表示的数字位数\n#include\u0026lt;stdio.h\u0026gt; int main(){ int n; while(scanf(\u0026#34;%d\u0026#34;,\u0026amp;n)!=EOF){ printf(\u0026#34; has %d digits\\n\u0026#34;,printf(\u0026#34;%d\u0026#34;,n)); } return 0; } 请写一个程序,读入一个行字符串(可能包含空格),输出这个字符串中字符的数量\n#include\u0026lt;stdio.h\u0026gt; int main(){ char str[100]; while(scanf(\u0026#34;%[^\\n]s\u0026#34;,str)!=EOF) { getchar(); printf(\u0026#34; has %d chars\\n\u0026#34;,printf(\u0026#34;%s\u0026#34;,str)); } return 0; } sprintf 和 fprintf 代码演示 #include \u0026lt;stdio.h\u0026gt; #define swap(a, b) { \\ __typeof(a) temp = a;\\ a = b, b = temp; \\ } int main() { printf(\u0026#34;%c\\n\u0026#34;, 97); int n; scanf(\u0026#34;%d\u0026#34;, \u0026amp;n); printf(\u0026#34;%04d\\n\u0026#34;, n); char str[100], buff[100], *p = str, *q = buff; sprintf(str, \u0026#34;%d.",
+  "keywords": [
+    
+  ],
+  "articleBody": "DAY05 输出函数说明 printf 函数\n头文件:stdio.h 原型:int printf(const char *format,…); format:格式控制字符串 …:可变参数列表 返回值:输出字符类型 输出函数说明 scanf 函数\n头文件:stdio.h 原型:int scanf(const char *format,…); format:格式控制字符 …:可变参数列表 返回值:成功读入列表 请使用 printf 函数,求解一个数字 n 的十进制表示的数字位数\n#include int main(){ int n; while(scanf(\"%d\",\u0026n)!=EOF){ printf(\" has %d digits\\n\",printf(\"%d\",n)); } return 0; } 请写一个程序,读入一个行字符串(可能包含空格),输出这个字符串中字符的数量\n#include int main(){ char str[100]; while(scanf(\"%[^\\n]s\",str)!=EOF) { getchar(); printf(\" has %d chars\\n\",printf(\"%s\",str)); } return 0; } sprintf 和 fprintf 代码演示 #include #define swap(a, b) { \\ __typeof(a) temp = a;\\ a = b, b = temp; \\ } int main() { printf(\"%c\\n\", 97); int n; scanf(\"%d\", \u0026n); printf(\"%04d\\n\", n); char str[100], buff[100], *p = str, *q = buff; sprintf(str, \"%d.%d.%d.%d\", 192,168,1,10); printf(\"str=%s\\n\", str); if (n \u0026 1) { sprintf(q, \"(%s)\", p); swap(p, q); } if (n \u0026 2) { sprintf(q, \"[%s]\", p); swap(p, q); } if (n \u0026 4) { sprintf(q, \"{%s}\", p); swap(p, q); } FILE *fout = fopen(\"output\", \"w\"); fprintf(stdout, \"stdout = %s\\n\", p); fprintf(stderr, \"stderr = %s\\n\", p); return 0; } ",
+  "wordCount" : "158",
+  "inLanguage": "en",
+  "datePublished": "2022-03-27T22:59:11+08:00",
+  "dateModified": "2022-03-27T22:59:11+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://xhwhis.github.io/hugo-blog/posts/note4/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Whis's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://xhwhis.github.io/hugo-blog/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://xhwhis.github.io/hugo-blog/" accesskey="h" title="Whis&#39;s Blog (Alt + H)">Whis&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      note4<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h1>
+    <div class="post-meta"><span title='2022-03-27 22:59:11 +0800 +0800'>March 27, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="day05">DAY05<a hidden class="anchor" aria-hidden="true" href="#day05">#</a></h1>
+<h2 id="输出函数说明">输出函数说明<a hidden class="anchor" aria-hidden="true" href="#输出函数说明">#</a></h2>
+<p>printf 函数</p>
+<ul>
+<li>头文件:stdio.h</li>
+<li>原型:int printf(const char *format,&hellip;);</li>
+<li>format:格式控制字符串</li>
+<li>&hellip;:可变参数列表</li>
+<li>返回值:输出字符类型</li>
+</ul>
+<h2 id="输出函数说明-1">输出函数说明<a hidden class="anchor" aria-hidden="true" href="#输出函数说明-1">#</a></h2>
+<p>scanf 函数</p>
+<ul>
+<li>头文件:stdio.h</li>
+<li>原型:int scanf(const char *format,&hellip;);</li>
+<li>format:格式控制字符</li>
+<li>&hellip;:可变参数列表</li>
+<li>返回值:成功读入列表</li>
+</ul>
+<p>请使用 printf 函数,求解一个数字 n 的十进制表示的数字位数</p>
+<pre tabindex="0"><code>#include&lt;stdio.h&gt;
+int main(){
+    int n;
+    while(scanf(&#34;%d&#34;,&amp;n)!=EOF){
+        printf(&#34; has %d digits\n&#34;,printf(&#34;%d&#34;,n));
+    }
+    return 0;
+}
+</code></pre><p>请写一个程序,读入一个行字符串(可能包含空格),输出这个字符串中字符的数量</p>
+<pre tabindex="0"><code>#include&lt;stdio.h&gt;
+int main(){
+    char str[100];
+    while(scanf(&#34;%[^\n]s&#34;,str)!=EOF) {
+        getchar();
+        printf(&#34; has %d chars\n&#34;,printf(&#34;%s&#34;,str));
+    }
+    return 0;
+}
+</code></pre><h2 id="sprintf-和-fprintf-代码演示">sprintf 和 fprintf 代码演示<a hidden class="anchor" aria-hidden="true" href="#sprintf-和-fprintf-代码演示">#</a></h2>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;
+#define swap(a, b) { \
+    __typeof(a) temp = a;\
+    a = b, b = temp; \
+}
+
+int main() {
+    printf(&#34;%c\n&#34;, 97);
+    int n;
+    scanf(&#34;%d&#34;, &amp;n);
+    printf(&#34;%04d\n&#34;, n);
+    char str[100], buff[100], *p = str, *q = buff;
+    sprintf(str, &#34;%d.%d.%d.%d&#34;, 192,168,1,10);
+    printf(&#34;str=%s\n&#34;, str);
+    if (n &amp; 1) {
+        sprintf(q, &#34;(%s)&#34;, p);
+        swap(p, q);
+    }
+    if (n &amp; 2) {
+        sprintf(q, &#34;[%s]&#34;, p);
+        swap(p, q);
+    }
+    if (n &amp; 4) {
+        sprintf(q, &#34;{%s}&#34;, p);
+        swap(p, q);
+    }
+    FILE *fout = fopen(&#34;output&#34;, &#34;w&#34;);
+    fprintf(stdout, &#34;stdout = %s\n&#34;, p);
+    fprintf(stderr, &#34;stderr = %s\n&#34;, p);
+    return 0;
+}
+</code></pre>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://xhwhis.github.io/hugo-blog/">Whis&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

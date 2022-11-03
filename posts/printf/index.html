@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>printf | Whis&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="printf 输出颜色和 ANSI 控制码(高亮,下划线,闪烁,光标位置,清屏等)
+颜色：
+#define NONE &ldquo;/033[m&rdquo;
+#define RED &ldquo;/033[0;32;31m&rdquo;
+#define LIGHT_RED &ldquo;/033[1;31m&rdquo;
+#define GREEN &ldquo;/033[0;32;32m&rdquo;
+#define LIGHT_GREEN &ldquo;/033[1;32m&rdquo;
+#define BLUE &ldquo;/033[0;32;34m&rdquo;
+#define LIGHT_BLUE &ldquo;/033[1;34m&rdquo;
+#define DARY_GRAY &ldquo;/033[1;30m&rdquo;
+#define CYAN &ldquo;/033[0;36m&rdquo;
+#define LIGHT_CYAN &ldquo;/033[1;36m&rdquo;
+#define PURPLE &ldquo;/033[0;35m&rdquo;
+#define LIGHT_PURPLE &ldquo;/033[1;35m&rdquo;
+#define BROWN &ldquo;/033[0;33m&rdquo;
+#define YELLOW &ldquo;/033[1;33m&rdquo;
+#define LIGHT_GRAY &ldquo;/033[0;37m&rdquo;
+#define WHITE &ldquo;/033[1;37m&rdquo;
+比如：
+printf(&quot;/033[31m ####&mdash;&ndash;&gt;&gt; /033[32m&quot; &ldquo;hello/n&rdquo; &ldquo;/033[m&rdquo;)
+int main()
+{
+printf( CYAN &ldquo;current function is %s &quot; GREEN &quot; file line is %d/n&rdquo; NONE,">
+<meta name="author" content="">
+<link rel="canonical" href="https://xhwhis.github.io/hugo-blog/posts/printf/">
+<link crossorigin="anonymous" href="/hugo-blog/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css" integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/hugo-blog/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://xhwhis.github.io/hugo-blog/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://xhwhis.github.io/hugo-blog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://xhwhis.github.io/hugo-blog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://xhwhis.github.io/hugo-blog/apple-touch-icon.png">
+<link rel="mask-icon" href="https://xhwhis.github.io/hugo-blog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="printf" />
+<meta property="og:description" content="printf 输出颜色和 ANSI 控制码(高亮,下划线,闪烁,光标位置,清屏等)
+颜色：
+#define NONE &ldquo;/033[m&rdquo;
+#define RED &ldquo;/033[0;32;31m&rdquo;
+#define LIGHT_RED &ldquo;/033[1;31m&rdquo;
+#define GREEN &ldquo;/033[0;32;32m&rdquo;
+#define LIGHT_GREEN &ldquo;/033[1;32m&rdquo;
+#define BLUE &ldquo;/033[0;32;34m&rdquo;
+#define LIGHT_BLUE &ldquo;/033[1;34m&rdquo;
+#define DARY_GRAY &ldquo;/033[1;30m&rdquo;
+#define CYAN &ldquo;/033[0;36m&rdquo;
+#define LIGHT_CYAN &ldquo;/033[1;36m&rdquo;
+#define PURPLE &ldquo;/033[0;35m&rdquo;
+#define LIGHT_PURPLE &ldquo;/033[1;35m&rdquo;
+#define BROWN &ldquo;/033[0;33m&rdquo;
+#define YELLOW &ldquo;/033[1;33m&rdquo;
+#define LIGHT_GRAY &ldquo;/033[0;37m&rdquo;
+#define WHITE &ldquo;/033[1;37m&rdquo;
+比如：
+printf(&quot;/033[31m ####&mdash;&ndash;&gt;&gt; /033[32m&quot; &ldquo;hello/n&rdquo; &ldquo;/033[m&rdquo;)
+int main()
+{
+printf( CYAN &ldquo;current function is %s &quot; GREEN &quot; file line is %d/n&rdquo; NONE," />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xhwhis.github.io/hugo-blog/posts/printf/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-27T22:59:11+08:00" />
+<meta property="article:modified_time" content="2022-03-27T22:59:11+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="printf"/>
+<meta name="twitter:description" content="printf 输出颜色和 ANSI 控制码(高亮,下划线,闪烁,光标位置,清屏等)
+颜色：
+#define NONE &ldquo;/033[m&rdquo;
+#define RED &ldquo;/033[0;32;31m&rdquo;
+#define LIGHT_RED &ldquo;/033[1;31m&rdquo;
+#define GREEN &ldquo;/033[0;32;32m&rdquo;
+#define LIGHT_GREEN &ldquo;/033[1;32m&rdquo;
+#define BLUE &ldquo;/033[0;32;34m&rdquo;
+#define LIGHT_BLUE &ldquo;/033[1;34m&rdquo;
+#define DARY_GRAY &ldquo;/033[1;30m&rdquo;
+#define CYAN &ldquo;/033[0;36m&rdquo;
+#define LIGHT_CYAN &ldquo;/033[1;36m&rdquo;
+#define PURPLE &ldquo;/033[0;35m&rdquo;
+#define LIGHT_PURPLE &ldquo;/033[1;35m&rdquo;
+#define BROWN &ldquo;/033[0;33m&rdquo;
+#define YELLOW &ldquo;/033[1;33m&rdquo;
+#define LIGHT_GRAY &ldquo;/033[0;37m&rdquo;
+#define WHITE &ldquo;/033[1;37m&rdquo;
+比如：
+printf(&quot;/033[31m ####&mdash;&ndash;&gt;&gt; /033[32m&quot; &ldquo;hello/n&rdquo; &ldquo;/033[m&rdquo;)
+int main()
+{
+printf( CYAN &ldquo;current function is %s &quot; GREEN &quot; file line is %d/n&rdquo; NONE,"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://xhwhis.github.io/hugo-blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "printf",
+      "item": "https://xhwhis.github.io/hugo-blog/posts/printf/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "printf",
+  "name": "printf",
+  "description": "printf 输出颜色和 ANSI 控制码(高亮,下划线,闪烁,光标位置,清屏等)\n颜色：\n#define NONE \u0026ldquo;/033[m\u0026rdquo;\n#define RED \u0026ldquo;/033[0;32;31m\u0026rdquo;\n#define LIGHT_RED \u0026ldquo;/033[1;31m\u0026rdquo;\n#define GREEN \u0026ldquo;/033[0;32;32m\u0026rdquo;\n#define LIGHT_GREEN \u0026ldquo;/033[1;32m\u0026rdquo;\n#define BLUE \u0026ldquo;/033[0;32;34m\u0026rdquo;\n#define LIGHT_BLUE \u0026ldquo;/033[1;34m\u0026rdquo;\n#define DARY_GRAY \u0026ldquo;/033[1;30m\u0026rdquo;\n#define CYAN \u0026ldquo;/033[0;36m\u0026rdquo;\n#define LIGHT_CYAN \u0026ldquo;/033[1;36m\u0026rdquo;\n#define PURPLE \u0026ldquo;/033[0;35m\u0026rdquo;\n#define LIGHT_PURPLE \u0026ldquo;/033[1;35m\u0026rdquo;\n#define BROWN \u0026ldquo;/033[0;33m\u0026rdquo;\n#define YELLOW \u0026ldquo;/033[1;33m\u0026rdquo;\n#define LIGHT_GRAY \u0026ldquo;/033[0;37m\u0026rdquo;\n#define WHITE \u0026ldquo;/033[1;37m\u0026rdquo;\n比如：\nprintf(\u0026quot;/033[31m ####\u0026mdash;\u0026ndash;\u0026gt;\u0026gt; /033[32m\u0026quot; \u0026ldquo;hello/n\u0026rdquo; \u0026ldquo;/033[m\u0026rdquo;)\nint main()\n{\nprintf( CYAN \u0026ldquo;current function is %s \u0026quot; GREEN \u0026quot; file line is %d/n\u0026rdquo; NONE,",
+  "keywords": [
+    
+  ],
+  "articleBody": "printf 输出颜色和 ANSI 控制码(高亮,下划线,闪烁,光标位置,清屏等)\n颜色：\n#define NONE “/033[m”\n#define RED “/033[0;32;31m”\n#define LIGHT_RED “/033[1;31m”\n#define GREEN “/033[0;32;32m”\n#define LIGHT_GREEN “/033[1;32m”\n#define BLUE “/033[0;32;34m”\n#define LIGHT_BLUE “/033[1;34m”\n#define DARY_GRAY “/033[1;30m”\n#define CYAN “/033[0;36m”\n#define LIGHT_CYAN “/033[1;36m”\n#define PURPLE “/033[0;35m”\n#define LIGHT_PURPLE “/033[1;35m”\n#define BROWN “/033[0;33m”\n#define YELLOW “/033[1;33m”\n#define LIGHT_GRAY “/033[0;37m”\n#define WHITE “/033[1;37m”\n比如：\nprintf(\"/033[31m ####—–\u003e\u003e /033[32m\" “hello/n” “/033[m”)\nint main()\n{\nprintf( CYAN “current function is %s \" GREEN \" file line is %d/n” NONE,\nFUNCTION, LINE );\nfprintf(stderr, RED “current function is %s \" BLUE \" file line is %d/n” NONE,\nFUNCTION, LINE );\nreturn 0;\n}\n颜色分为背景色和字体色，30~39 用来设置字体色，40~49 设置背景：\n背景色 字体色\n40: 黑 30: 黑\n41: 红 31: 红\n42: 绿 32: 绿\n43: 黄 33: 黄\n44: 蓝 34: 蓝\n45: 紫 35: 紫\n46: 深绿 36: 深绿\n47: 白色 37: 白色\n记得在打印完之后，把颜色恢复成 NONE，不然再后面的打印都会跟着变色。\n另外，还可以加一些 ANSI 控制码。加颜色只是以下控制码中的一种：\n/033[0m 关闭所有属性\n/033[1m 设置高亮度\n/033[4m 下划线\n/033[5m 闪烁\n/033[7m 反显\n/033[8m 消隐\n/033[30m – /033[37m 设置前景色\n/033[40m – /033[47m 设置背景色\n/033[nA 光标上移 n 行\n/033[nB 光标下移 n 行\n/033[nC 光标右移 n 行\n/033[nD 光标左移 n 行\n/033[y;xH 设置光标位置\n/033[2J 清屏\n/033[K 清除从光标到行尾的内容\n/033[s 保存光标位置\n/033[u 恢复光标位置\n/033[?25l 隐藏光标\n/033[?25h 显示光标\n",
+  "wordCount" : "191",
+  "inLanguage": "en",
+  "datePublished": "2022-03-27T22:59:11+08:00",
+  "dateModified": "2022-03-27T22:59:11+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://xhwhis.github.io/hugo-blog/posts/printf/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Whis's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://xhwhis.github.io/hugo-blog/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://xhwhis.github.io/hugo-blog/" accesskey="h" title="Whis&#39;s Blog (Alt + H)">Whis&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      printf<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h1>
+    <div class="post-meta"><span title='2022-03-27 22:59:11 +0800 +0800'>March 27, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>printf 输出颜色和 ANSI 控制码(高亮,下划线,闪烁,光标位置,清屏等)</p>
+<p>颜色：</p>
+<p>#define NONE &ldquo;/033[m&rdquo;</p>
+<p>#define RED &ldquo;/033[0;32;31m&rdquo;</p>
+<p>#define LIGHT_RED &ldquo;/033[1;31m&rdquo;</p>
+<p>#define GREEN &ldquo;/033[0;32;32m&rdquo;</p>
+<p>#define LIGHT_GREEN &ldquo;/033[1;32m&rdquo;</p>
+<p>#define BLUE &ldquo;/033[0;32;34m&rdquo;</p>
+<p>#define LIGHT_BLUE &ldquo;/033[1;34m&rdquo;</p>
+<p>#define DARY_GRAY &ldquo;/033[1;30m&rdquo;</p>
+<p>#define CYAN &ldquo;/033[0;36m&rdquo;</p>
+<p>#define LIGHT_CYAN &ldquo;/033[1;36m&rdquo;</p>
+<p>#define PURPLE &ldquo;/033[0;35m&rdquo;</p>
+<p>#define LIGHT_PURPLE &ldquo;/033[1;35m&rdquo;</p>
+<p>#define BROWN &ldquo;/033[0;33m&rdquo;</p>
+<p>#define YELLOW &ldquo;/033[1;33m&rdquo;</p>
+<p>#define LIGHT_GRAY &ldquo;/033[0;37m&rdquo;</p>
+<p>#define WHITE &ldquo;/033[1;37m&rdquo;</p>
+<p>比如：</p>
+<p>printf(&quot;/033[31m ####&mdash;&ndash;&gt;&gt; /033[32m&quot; &ldquo;hello/n&rdquo; &ldquo;/033[m&rdquo;)</p>
+<p>int main()</p>
+<p>{</p>
+<p>printf( CYAN &ldquo;current function is %s &quot; GREEN &quot; file line is %d/n&rdquo; NONE,</p>
+<p><strong>FUNCTION</strong>, <strong>LINE</strong> );</p>
+<p>fprintf(stderr, RED &ldquo;current function is %s &quot; BLUE &quot; file line is %d/n&rdquo; NONE,</p>
+<p><strong>FUNCTION</strong>, <strong>LINE</strong> );</p>
+<p>return 0;</p>
+<p>}</p>
+<p>颜色分为背景色和字体色，30~39 用来设置字体色，40~49 设置背景：</p>
+<p>背景色 字体色</p>
+<p>40: 黑 30: 黑</p>
+<p>41: 红 31: 红</p>
+<p>42: 绿 32: 绿</p>
+<p>43: 黄 33: 黄</p>
+<p>44: 蓝 34: 蓝</p>
+<p>45: 紫 35: 紫</p>
+<p>46: 深绿 36: 深绿</p>
+<p>47: 白色 37: 白色</p>
+<p>记得在打印完之后，把颜色恢复成 NONE，不然再后面的打印都会跟着变色。</p>
+<p>另外，还可以加一些 ANSI 控制码。加颜色只是以下控制码中的一种：</p>
+<p>/033[0m 关闭所有属性</p>
+<p>/033[1m 设置高亮度</p>
+<p>/033[4m 下划线</p>
+<p>/033[5m 闪烁</p>
+<p>/033[7m 反显</p>
+<p>/033[8m 消隐</p>
+<p>/033[30m &ndash; /033[37m 设置前景色</p>
+<p>/033[40m &ndash; /033[47m 设置背景色</p>
+<p>/033[nA 光标上移 n 行</p>
+<p>/033[nB 光标下移 n 行</p>
+<p>/033[nC 光标右移 n 行</p>
+<p>/033[nD 光标左移 n 行</p>
+<p>/033[y;xH 设置光标位置</p>
+<p>/033[2J 清屏</p>
+<p>/033[K 清除从光标到行尾的内容</p>
+<p>/033[s 保存光标位置</p>
+<p>/033[u 恢复光标位置</p>
+<p>/033[?25l 隐藏光标</p>
+<p>/033[?25h 显示光标</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://xhwhis.github.io/hugo-blog/">Whis&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
