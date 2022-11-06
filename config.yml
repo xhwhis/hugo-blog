@@ -1,3 +1,24 @@
 languageCode: zh
 title: Whis's Blog
 theme: PaperMod
+
+paginate: 5
+
+params:
+  author: xhwhis
+
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowToc: true
+
+  assets:
+    disableHLJS: true
+
+markup:
+  highlight:
+    lineNos: true
+    noClasses: false
+    style: dracula
