@@ -15,11 +15,10 @@
       <guid>https://xhwhis.github.io/hugo-blog/posts/flarum-installation/</guid>
       <description>Mac 本地化安装配置 Flarum 系统: macOS Monterey + Apple M1
 前提: homebrewCN
-MariaDB 配置 brew install mariadb brew services restart mariadb 初始化 MariaDB sudo 下配置
-mysql_secure_installation Composer brew install composer ps. 安装 composer 会连同依赖 php 一同安装，但 flarum 没适配最新的 php
-php@8.0 brew install php@8.0 brew services restart php@8.0 同环境下还有一个 php，指定一下 PHP8.0
-echo &amp;#39;export PATH=&amp;#34;/opt/homebrew/opt/php@8.0/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.zshrc echo &amp;#39;export PATH=&amp;#34;/opt/homebrew/opt/php@8.0/sbin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.zshrc Caddy brew install caddy URL 重写——配置 Caddy 在/opt/homebrew/etc/Caddyfile 中添加配置，如果没有该文件，则新建
-127.0.0.1:9090 { root * /var/www/flarum/public php_fastcgi 127.</description>
+MariaDB 配置 1 2 brew install mariadb brew services restart mariadb 初始化 MariaDB sudo 下配置
+1 mysql_secure_installation Composer 1 brew install composer ps. 安装 composer 会连同依赖 php 一同安装，但 flarum 没适配最新的 php
+php@8.0 1 2 brew install php@8.0 brew services restart php@8.0 同环境下还有一个 php，指定一下 PHP8.0
+1 2 echo &amp;#39;export PATH=&amp;#34;/opt/homebrew/opt/php@8.0/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.zshrc echo &amp;#39;export PATH=&amp;#34;/opt/homebrew/opt/php@8.0/sbin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.zshrc Caddy 1 brew install caddy URL 重写——配置 Caddy 在/opt/homebrew/etc/Caddyfile 中添加配置，如果没有该文件，则新建</description>
     </item>
     
     <item>
@@ -92,7 +91,7 @@ char* const p3 = greeting; // 自身是常量的指针，指向字符数组变�
 ? const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量
 #pragma pack(n) 设定结构体、联合以及类成员变量以 n 字节方式对齐
 #pragma pack(n) 使用
-#pragma pack(push) // 保存对齐状态 #pragma pack(4) // 设定为 4 字节对齐 struct test { char m1; double m4; int m3; }; #pragma pack(pop) // 恢复对齐状态 位域 Bit mode: 2; // mode 占 2 位 类可以将其（非静态）数据成员定义为位域（bit-field），在一个位域中含有一定数量的二进制位。当一个程序需要向其他程序或硬件设备传递二进制数据时，通常会用到位域。</description>
+1 2 3 4 5 6 7 8 9 10 11 #pragma pack(push) // 保存对齐状态 #pragma pack(4) // 设定为 4 字节对齐 struct test { char m1; double m4; int m3; }; #pragma pack(pop) // 恢复对齐状态 位域 1 Bit mode: 2; // mode 占 2 位 类可以将其（非静态）数据成员定义为位域（bit-field），在一个位域中含有一定数量的二进制位。当一个程序需要向其他程序或硬件设备传递二进制数据时，通常会用到位域。</description>
     </item>
     
     <item>
@@ -114,7 +113,7 @@ char* const p3 = greeting; // 自身是常量的指针，指向字符数组变�
       <description>c++ stl queue-类说明 queue 类：队列
 头文件：queue 命名空间：std 声明：queue&amp;lt;data_type&amp;gt; q; q.fornt() 查看队首元素 q.empty() 队列判空 q.push() 入队 q.pop() 出队 q.size() 队列元素数量 stack-类说明 stack 类：栈
 头文件：stack 命名空间：std 声明：stack&amp;lt;data_type&amp;gt; s; s.top() 查看栈顶元素 s.empty() 栈判空 s.push() 入栈 s.pop()类 出栈 s.size() 栈元素数量 string-类说明 string 类：字符串
-头文件：string 命名空间：std 声明：string str1, str2; str1 == str2 字符串判等 str1 &amp;lt; str2 字典序小于 str1 &amp;gt; str2 字典序大于 str1 += str2 字符串连接 str1.length() 字符串长度 string (hzoj-166) #include &amp;lt;iostream&amp;gt; #include &amp;lt;string&amp;gt; using namespace std; int main() { string str1, str2; int n; cin &amp;gt;&amp;gt; str1 &amp;gt;&amp;gt; n &amp;gt;&amp;gt; str2; cout &amp;lt;&amp;lt; min(str1.</description>
+头文件：string 命名空间：std 声明：string str1, str2; str1 == str2 字符串判等 str1 &amp;lt; str2 字典序小于 str1 &amp;gt; str2 字典序大于 str1 += str2 字符串连接 str1.length() 字符串长度 string (hzoj-166) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 #include &amp;lt;iostream&amp;gt; #include &amp;lt;string&amp;gt; using namespace std; int main() { string str1, str2; int n; cin &amp;gt;&amp;gt; str1 &amp;gt;&amp;gt; n &amp;gt;&amp;gt; str2; cout &amp;lt;&amp;lt; min(str1.</description>
     </item>
     
     <item>
@@ -132,7 +131,7 @@ char* const p3 = greeting; // 自身是常量的指针，指向字符数组变�
       <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
       
       <guid>https://xhwhis.github.io/hugo-blog/posts/git%E4%BB%A3%E7%90%86/</guid>
-      <description>git 设置和取消代理 设置如下： git config --global https.proxy http://127.0.0.1:1080 git config --global https.proxy https://127.0.0.1:1080 git config --global http.proxy &amp;#39;socks5://127.0.0.1:1080&amp;#39; git config --global https.proxy &amp;#39;socks5://127.0.0.1:1080&amp;#39; 取消 git config --global --unset http.proxy git config --global --unset https.proxy </description>
+      <description>git 设置和取消代理 设置如下： 1 git config --global https.proxy http://127.0.0.1:1080 1 git config --global https.proxy https://127.0.0.1:1080 1 git config --global http.proxy &amp;#39;socks5://127.0.0.1:1080&amp;#39; 1 git config --global https.proxy &amp;#39;socks5://127.0.0.1:1080&amp;#39; 取消 1 git config --global --unset http.proxy 1 git config --global --unset https.proxy </description>
     </item>
     
     <item>
@@ -145,8 +144,7 @@ char* const p3 = greeting; // 自身是常量的指针，指向字符数组变�
 var &amp;amp; let &amp;amp; const let 声明的变量只在 let 命令所在的代码块内有效 const 声明一个只读的常量，一旦声明，常量的值就不能改变
 for 循环{}中多用 let
 for&amp;hellip;in &amp;amp; for&amp;hellip;of 在循环对象属性的时候，使用 for…in，for…in 循环得到的是 key 在遍历数组的时候的时候使用 for…of，for…of 循环得到的是 value
-for (let index in aArray) { console.log(aArray[index]); } for (let value of aArray) { console.log(value); } &amp;raquo; &amp;amp; &amp;raquo;&amp;gt; 运算符&amp;raquo;&amp;gt;执行无符号右移位运算。它把无符号的 32 位整数所有数位整体右移。对于无符号数或正数右移运算，无符号右移与有符号右移运算的结果是相同的
-console.log(1000 &amp;gt;&amp;gt; 8); //返回值3 console.</description>
+1 2 3 4 5 6 7 for (let index in aArray) { console.log(aArray[index]); } for (let value of aArray) { console.log(value); } &amp;raquo; &amp;amp; &amp;raquo;&amp;gt; 运算符&amp;raquo;&amp;gt;执行无符号右移位运算。它把无符号的 32 位整数所有数位整体右移。对于无符号数或正数右移运算，无符号右移与有符号右移运算的结果是相同的</description>
     </item>
     
     <item>
@@ -161,10 +159,10 @@ console.log(1000 &amp;gt;&amp;gt; 8); //返回值3 console.</description>
 笔记——typora
 git tool——sourcetree
 开发环境 最先安装完成 Xcode，然后
-xcode-select --install 配置常用开发环境（其中 python3 version 3.8，需 brew install python@3.9）
-安装 homebrewcn /bin/zsh -c &amp;#34;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&amp;#34; 安装常用工具 python、node、yarn、ccls、fzf、ranger、typora、sourcetree、qt-creator、autojump、thefuck、visual-studio-code、neovim、microsoft-remote-desktop，只需要分别
-brew install #+ 以上包名 安装过程中部分包会提示在.zshrc 中添加配置，自行添加
-修改 pip 源 mkdir ~/.pip vim ~/.pip/pip.conf [global] index-url = https://pypi.tuna.tsinghua.edu.cn/simple [install] trusted-host = https://pypi.tuna.tsinghua.edu.cn 升级 pip pip3 install --upgrade pip 安装 pygments、pynvim pip install -g pygments pip install -g pynvim 修改 npm、yarn 源 npm config set registry https://registry.</description>
+1 xcode-select --install 配置常用开发环境（其中 python3 version 3.8，需 brew install python@3.9）
+安装 homebrewcn 1 /bin/zsh -c &amp;#34;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&amp;#34; 安装常用工具 python、node、yarn、ccls、fzf、ranger、typora、sourcetree、qt-creator、autojump、thefuck、visual-studio-code、neovim、microsoft-remote-desktop，只需要分别
+1 brew install #+ 以上包名 安装过程中部分包会提示在.zshrc 中添加配置，自行添加
+修改 pip 源 1 2 mkdir ~/.pip vim ~/.pip/pip.conf [global] index-url = https://pypi.tuna.tsinghua.edu.cn/simple [install] trusted-host = https://pypi.tuna.tsinghua.edu.cn 升级 pip 1 pip3 install --upgrade pip 安装 pygments、pynvim 1 2 pip install -g pygments pip install -g pynvim 修改 npm、yarn 源 1 2 npm config set registry https://registry.</description>
     </item>
     
     <item>
@@ -173,7 +171,7 @@ brew install #+ 以上包名 安装过程中部分包会提示在.zshrc 中添�
       <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
       
       <guid>https://xhwhis.github.io/hugo-blog/posts/manjaro-kde%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E9%85%8D%E7%BD%AE/</guid>
-      <description>manjaro kde 安装后的配置 启动项 sudo update-grub 镜像源（选择清华源） sudo pacman-mirrors -i -c China -m rank sudo pacman -Syy sudo nano /etc/pacman.conf [archlinuxcn] SigLevel = Optional TrustedOnly Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch sudo pacman -S archlinuxcn-keyring sudo apcman -Syyu 安装软件 yay sudo pacman -S yay base-devel yay --save --aururl &amp;#34;https://aur.tuna.tsinghua.edu.cn&amp;#34; git yay -S git git config --global user.name &amp;#39;lws597&amp;#39; git config --global user.email &amp;#39;1320949958@qq.com&amp;#39; sudo vim /etc/hosts 52.74.223.119 github.com 151.101.77.194 github.global.ssl.fastly.net 151.101.76.133 raw.githubusercontent.com github 密钥导入 ssh-keygen cat .</description>
+      <description>manjaro kde 安装后的配置 启动项 1 sudo update-grub 镜像源（选择清华源） 1 2 3 sudo pacman-mirrors -i -c China -m rank sudo pacman -Syy sudo nano /etc/pacman.conf [archlinuxcn] SigLevel = Optional TrustedOnly Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch 1 2 sudo pacman -S archlinuxcn-keyring sudo apcman -Syyu 安装软件 yay 1 sudo pacman -S yay base-devel 1 yay --save --aururl &amp;#34;https://aur.tuna.tsinghua.edu.cn&amp;#34; git 1 yay -S git 1 2 3 git config --global user.name &amp;#39;lws597&amp;#39; git config --global user.</description>
     </item>
     
     <item>
@@ -334,12 +332,11 @@ printf( CYAN &amp;ldquo;current function is %s &amp;quot; GREEN &amp;quot; file 
       <description>Swift 学习 note Swift 引入 使用 import 语句来引入任何的 Objective-C 框架（或 C 库）到 Swift 程序中。例如 import cocoa 语句导入了使用了 Cocoa 库和 API，可以在 Swift 程序中使用它们。
 Cocoa 本身由 Objective-C 语言写成，Objective-C 又是 C 语言的严格超集，所以在 Swift 应用中可以很简单的混入 C 语言代码，甚至是 C++ 代码。
 分号 Swift 不要求在每行语句的结尾使用分号(;)，但在同一行书写多条语句时，必须用分号隔开：
-import Cocoa var str = &amp;#34;Hello World&amp;#34;; print (str) 词法分析或语法分析时应该直接忽略了分号(;)
+1 2 import Cocoa var str = &amp;#34;Hello World&amp;#34;; print (str) 词法分析或语法分析时应该直接忽略了分号(;)
 标识符 如果一定要使用关键字作为标识符，可以在关键字前后添加重音符号（`），例如：
-let `class` = &amp;#34;Runoob&amp;#34; 比 php 中的标识符前加@的处理更高级
+1 let `class` = &amp;#34;Runoob&amp;#34; 比 php 中的标识符前加@的处理更高级
 Swift 空格 Swift 语言并不是像 C/C++，Java 那样完全忽视空格，Swift 对空格的使用有一定的要求，但是又不像 Python 对缩进的要求那么严格。
-在 Swift 中，运算符不能直接跟在变量或常量的后面。例如下面的代码会报错：
-let a=1 + 2 错误信息是：</description>
+在 Swift 中，运算符不能直接跟在变量或常量的后面。例如下面的代码会报错：</description>
     </item>
     
     <item>
@@ -352,15 +349,15 @@ let a=1 + 2 错误信息是：</description>
 Swift 闭包
 语法
 以下定义了一个接收参数并返回指定类型的闭包语法：
-{(parameters) -&amp;gt; return type in statements } 实例
-import Cocoa let divide = {(val1: Int, val2: Int) -&amp;gt; Int in return val1 / val2 } let result = divide(200, 20) print (result) 闭包表达式
+1 2 3 {(parameters) -&amp;gt; return type in statements } 实例
+1 2 3 4 5 6 7 import Cocoa let divide = {(val1: Int, val2: Int) -&amp;gt; Int in return val1 / val2 } let result = divide(200, 20) print (result) 闭包表达式
 闭包表达式是一种利用简洁语法构建内联闭包的方式。 闭包表达式提供了一些语法优化，使得撰写闭包变得简单明了
 sorted 方法
 Swift 标准库提供了名为 sorted(by:) 的方法，会根据您提供的用于排序的闭包函数将已知类型数组中的值进行排序。
 排序完成后，sorted(by:) 方法会返回一个与原数组大小相同，包含同类型元素且元素已正确排序的新数组。原数组不会被 sorted(by:) 方法修改。
 sorted(by:)方法需要传入两个参数：
 已知类型的数组 闭包函数，该闭包函数需要传入与数组元素类型相同的两个值，并返回一个布尔类型值来表明当排序结束后传入的第一个参数排在第二个参数前面还是后面。如果第一个参数值出现在第二个参数值前面，排序闭包函数需要返回 true，反之返回 false 实例
-import Cocoa let names = [&amp;#34;AT&amp;#34;, &amp;#34;AE&amp;#34;, &amp;#34;D&amp;#34;, &amp;#34;S&amp;#34;, &amp;#34;BE&amp;#34;] // 使用普通函数(或内嵌函数)提供排序功能,闭包函数类型需为(String, String) -&amp;gt; Bool。 func backwards(s1: String, s2: String) -&amp;gt; Bool { return s1 &amp;gt; s2 } var reversed = names.</description>
+1 2 3 4 5 6 7 8 9 10 11 import Cocoa let names = [&amp;#34;AT&amp;#34;, &amp;#34;AE&amp;#34;, &amp;#34;D&amp;#34;, &amp;#34;S&amp;#34;, &amp;#34;BE&amp;#34;] // 使用普通函数(或内嵌函数)提供排序功能,闭包函数类型需为(String, String) -&amp;gt; Bool。 func backwards(s1: String, s2: String) -&amp;gt; Bool { return s1 &amp;gt; s2 } var reversed = names.</description>
     </item>
     
     <item>
@@ -433,7 +430,7 @@ const名叫常量限定符，用来限定特定变量，以通知编译器该变
       
       <guid>https://xhwhis.github.io/hugo-blog/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A11/</guid>
       <description>类和对象 类型与变量 类型 变量 int a long long b char c double d float e 类型 = 类型数据 + 类型操作
-类与对象 类 对象 cat garfield dog odie people hug 访问权限 public 公共访问权限 private 私有访问权限 protected 受保护的访问权限 成员属性与方法 #include &amp;lt;iostream&amp;gt; using namespace std; struct A { int x, y; void echo() { cout &amp;lt;&amp;lt; &amp;#34;hello world a&amp;#34; &amp;lt;&amp;lt; endl; return ; } }; struct B { private: int x, y; public: void set_xy(int x, int y) { cout &amp;lt;&amp;lt; this &amp;lt;&amp;lt; endl; this-&amp;gt;x = x, this-&amp;gt;y = y; } void echo() { cout &amp;lt;&amp;lt; &amp;#34;hello world b&amp;#34; &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; y &amp;lt;&amp;lt; endl; return ; } }; int main() { A a; B b; a.</description>
+类与对象 类 对象 cat garfield dog odie people hug 访问权限 public 公共访问权限 private 私有访问权限 protected 受保护的访问权限 成员属性与方法 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 #include &amp;lt;iostream&amp;gt; using namespace std; struct A { int x, y; void echo() { cout &amp;lt;&amp;lt; &amp;#34;hello world a&amp;#34; &amp;lt;&amp;lt; endl; return ; } }; struct B { private: int x, y; public: void set_xy(int x, int y) { cout &amp;lt;&amp;lt; this &amp;lt;&amp;lt; endl; this-&amp;gt;x = x, this-&amp;gt;y = y; } void echo() { cout &amp;lt;&amp;lt; &amp;#34;hello world b&amp;#34; &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; y &amp;lt;&amp;lt; endl; return ; } }; int main() { A a; B b; a.</description>
     </item>
     
     <item>
@@ -442,7 +439,7 @@ const名叫常量限定符，用来限定特定变量，以通知编译器该变
       <pubDate>Sun, 27 Mar 2022 22:59:11 +0800</pubDate>
       
       <guid>https://xhwhis.github.io/hugo-blog/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A12/</guid>
-      <description>类和对象 类属性与类方法 #include &amp;lt;iostream&amp;gt; using namespace std; class A { public : A(int x) { cout &amp;lt;&amp;lt; &amp;#34;class A&amp;#39;s constructor&amp;#34; &amp;lt;&amp;lt; endl; } }; class Point { public : Point(); Point(int x, int y); int x() const; int y() const; int x_cnt() const; void set_x(int x); void set_y(int y); static int output_cnt(); ~Point(); private : static int point_cnt; int __x, __y; mutable int __x_cnt; A __a; }; int Point::point_cnt = 0; int Point::output_cnt() { return Point::point_cnt; } Point::Point() : __x_cnt(0), __a(2) { Point::point_cnt += 1; } Point::Point(int x, int y) : __x(x), __y(y), __x_cnt(0), __a(4) { Point::point_cnt += 1; } Point::~Point() { Point::point_cnt -= 1; } int Point::x() const { this-&amp;gt;__x_cnt += 1; return this-&amp;gt;__x; } int Point::y() const { return this-&amp;gt;__y; } int Point::x_cnt() const { return this-&amp;gt;__x_cnt; } void Point::set_x(int x) { this-&amp;gt;__x = x; } void Point::set_y(int y) { this-&amp;gt;__x = y; } void func() { Point c, d; cout &amp;lt;&amp;lt; &amp;#34;func : &amp;#34; &amp;lt;&amp;lt; Point::output_cnt() &amp;lt;&amp;lt; endl; return ; } int main() { Point a(2, 3), b; const Point c(3, 4); cout &amp;lt;&amp;lt; a.</description>
+      <description>类和对象 类属性与类方法 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 #include &amp;lt;iostream&amp;gt; using namespace std; class A { public : A(int x) { cout &amp;lt;&amp;lt; &amp;#34;class A&amp;#39;s constructor&amp;#34; &amp;lt;&amp;lt; endl; } }; class Point { public : Point(); Point(int x, int y); int x() const; int y() const; int x_cnt() const; void set_x(int x); void set_y(int y); static int output_cnt(); ~Point(); private : static int point_cnt; int __x, __y; mutable int __x_cnt; A __a; }; int Point::point_cnt = 0; int Point::output_cnt() { return Point::point_cnt; } Point::Point() : __x_cnt(0), __a(2) { Point::point_cnt += 1; } Point::Point(int x, int y) : __x(x), __y(y), __x_cnt(0), __a(4) { Point::point_cnt += 1; } Point::~Point() { Point::point_cnt -= 1; } int Point::x() const { this-&amp;gt;__x_cnt += 1; return this-&amp;gt;__x; } int Point::y() const { return this-&amp;gt;__y; } int Point::x_cnt() const { return this-&amp;gt;__x_cnt; } void Point::set_x(int x) { this-&amp;gt;__x = x; } void Point::set_y(int y) { this-&amp;gt;__x = y; } void func() { Point c, d; cout &amp;lt;&amp;lt; &amp;#34;func : &amp;#34; &amp;lt;&amp;lt; Point::output_cnt() &amp;lt;&amp;lt; endl; return ; } int main() { Point a(2, 3), b; const Point c(3, 4); cout &amp;lt;&amp;lt; a.</description>
     </item>
     
     <item>
@@ -471,7 +468,7 @@ C++多态意味着调用成员函数时，会根据调用函数的对象的类�
 纯虚函数 语义：子类肯定会有这个方法，而父类只能说“抱歉”
 应用场景：定义接口
 您可能想要在基类中定义虚函数，以便在派生类中重新定义该函数更好地适用于对象，但是您在基类中又不能对虚函数给出有意义的实现，这个时候就会用到纯虚函数。
-#include &amp;lt;iostream&amp;gt; #include &amp;lt;string&amp;gt; using namespace std; string rand_name(int n) { string name = &amp;#34;&amp;#34;; for (int i = 0; i &amp;lt; n; i++) { name = name + (char)(rand() % 26 + &amp;#39;A&amp;#39;); } return name; } class Animal { public: Animal(string name) : name(name) {} string get_name() {return this-&amp;gt;name;} virtual void run() { cout &amp;lt;&amp;lt; &amp;#34;I don&amp;#39;t know how to run.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 #include &amp;lt;iostream&amp;gt; #include &amp;lt;string&amp;gt; using namespace std; string rand_name(int n) { string name = &amp;#34;&amp;#34;; for (int i = 0; i &amp;lt; n; i++) { name = name + (char)(rand() % 26 + &amp;#39;A&amp;#39;); } return name; } class Animal { public: Animal(string name) : name(name) {} string get_name() {return this-&amp;gt;name;} virtual void run() { cout &amp;lt;&amp;lt; &amp;#34;I don&amp;#39;t know how to run.</description>
     </item>
     
     <item>
@@ -527,9 +524,8 @@ Table of Contents generated with DocToc
 arm 上部署情 qinglong、vaultwarden、caddy、v2ray
 amd64 上部署 focalboard、appflowy、caddy（暂定）
 安装 podman
-dnf install -y podman 安装 qinglong、vaultwarden
-mkdir ql podman run -d --privileged --name qinglong -v $PWD/ql:/ql/data -p 5700:5700 --restart always docker.io/whyour/qinglong:latest mkdir vw podman run -d --privileged --name vaultwarden -v $PWD/vw/:/data/:Z -e ROCKET_PORT=8080 -p 8080:8080 --restart always docker.io/vaultwarden/server:latest mkdir maiark podman run -d --privileged --name maiark -v $PWD/maiark:/MaiARK -p 8082:8082 --restart always docker.io/kissyouhunter/maiark:latest 安装 caddy
-dnf install &amp;#39;dnf-command(copr)&amp;#39; dnf copr enable @caddy/caddy dnf install -y caddy firewall 配置</description>
+1 dnf install -y podman 安装 qinglong、vaultwarden
+1 2 mkdir ql podman run -d --privileged --name qinglong -v $PWD/ql:/ql/data -p 5700:5700 --restart always docker.io/whyour/qinglong:latest 1 2 mkdir vw podman run -d --privileged --name vaultwarden -v $PWD/vw/:/data/:Z -e ROCKET_PORT=8080 -p 8080:8080 --restart always docker.io/vaultwarden/server:latest 1 2 mkdir maiark podman run -d --privileged --name maiark -v $PWD/maiark:/MaiARK -p 8082:8082 --restart always docker.</description>
     </item>
     
   </channel>

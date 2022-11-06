@@ -9,9 +9,9 @@
 <title>Whis&#39;s Blog</title>
 
 <meta name="description" content="">
-<meta name="author" content="">
+<meta name="author" content="xhwhis">
 <link rel="canonical" href="https://xhwhis.github.io/hugo-blog/">
-<link crossorigin="anonymous" href="/hugo-blog/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css" integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/hugo-blog/assets/css/stylesheet.89903f5336eff9763209fb4cd1e860a14715773bf5fd93b39c714e2690162751.css" integrity="sha256-iZA/Uzbv&#43;XYyCftM0ehgoUcVdzv1/ZOznHFOJpAWJ1E=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://xhwhis.github.io/hugo-blog/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://xhwhis.github.io/hugo-blog/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://xhwhis.github.io/hugo-blog/favicon-32x32.png">
@@ -127,115 +127,122 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>类和对象3<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>note2<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <div class="entry-content">
-    <p>类和对象 3 继承 面向对象程序设计中最重要的一个概念是继承。继承允许我们依据另一个类来定义一个类，这使得创建和维护一个应用程序变得更容易。这样做，也达到了重用代码功能和提高执行效率的效果。
-当创建一个类时，您不需要重新编写新的数据成员和成员函数，只需指定新建的类继承了一个已有的类的成员即可。这个已有的类称为基类，新建的类称为派生类。
-子类的访问权限 public protected private public yes yes yes protected yes yes no private no no no 对外的访问权限 public protected private public public protected private protected protected protected private private no no no 菱形继承（A-&gt;D, B-&gt;D, C-&gt;(A，B)） class D{......}; class B: public D{......}; class A: public D{......}; class C: public B, public A{.....}; 这个继承会使 D 创建两个对象,要解决上面问题就要用虚拟继承格式
-格式：class 类名: virtual 继承方式 父类名
-class D{......}; class B: virtual public D{....</p>
+    <p>DAY03 Linux 极简入门 文件与目录的管理 命令 功能 ls 显示文件及目录信息 cp 拷贝 rm 删除 mv 移动 cp 拷贝 cp [irapdslu] 选项
+-i 若文件存在，询问用户 -r 递归复制 -a pdr 的集合 -p 连同文件属性一起拷贝 -d 若源文件为连接文件的属性，则复制连接文件的属性 -s 拷贝为软连接 -l 拷贝为硬连接 -u 源文件比目的文件新才拷贝 rm 删除 rm [irf] &lt;dir_or_file&gt;
+选项
+-i 互动模式 -r 递归删除 -f force mv 移动 mv [ifu] &lt;source…&gt; mv source1 source2 souce3 dir 选项
+-i 互动模式 -f force -u 源文件更新才会移动 文件内容的查阅 命令 功能 cat 正向连接读 tac 反向连接读 nl 输出行号显示文件 more 一页一页的显示文件内容 less 与 more 相似，但是可以上下翻看 head 只看头几行 tail 只看末尾几行 cat 正向连续读 cat [-AbEnTv] 选项:...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-27 22:59:11 +0800 +0800'>March 27, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to 类和对象3" href="https://xhwhis.github.io/hugo-blog/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A13/"></a>
+  <footer class="entry-footer"><span title='2022-03-27 22:59:11 +0800 +0800'>March 27, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;268 words&nbsp;·&nbsp;xhwhis</footer>
+  <a class="entry-link" aria-label="post link to note2" href="https://xhwhis.github.io/hugo-blog/posts/note2/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>类和对象4<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>note3<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <div class="entry-content">
-    <p>类和对象 4 多态 多态按字面的意思就是多种形态。当类之间存在层次结构，并且类之间是通过继承关联时，就会用到多态。
-C&#43;&#43;多态意味着调用成员函数时，会根据调用函数的对象的类型来执行不同的函数。
-虚函数 虚函数是在基类中使用关键字 virtual 声明的函数。在派生类中重新定义基类中定义的虚函数时，会告诉编译器不要静态链接到该函数。
-我们想要的是在程序中任意点可以根据所调用的对象类型来选择调用的函数，这种操作被称为动态链接，或后期绑定。
-纯虚函数 语义：子类肯定会有这个方法，而父类只能说“抱歉”
-应用场景：定义接口
-您可能想要在基类中定义虚函数，以便在派生类中重新定义该函数更好地适用于对象，但是您在基类中又不能对虚函数给出有意义的实现，这个时候就会用到纯虚函数。
-#include &lt;iostream&gt; #include &lt;string&gt; using namespace std; string rand_name(int n) { string name = &#34;&#34;; for (int i = 0; i &lt; n; i&#43;&#43;) { name = name &#43; (char)(rand() % 26 &#43; &#39;A&#39;); } return name; } class Animal { public: Animal(string name) : name(name) {} string get_name() {return this-&gt;name;} virtual void run() { cout &lt;&lt; &#34;I don&#39;t know how to run....</p>
+    <p>DAY04 使用 github 管理代码 创建一个空目录 mkdir hzoj cd hzoj pwd 把目录变成 git 仓库 git init 把文件添加到仓库 git add * 把文件提交到仓库 git commit * 查看结果 git status 把本地库的所有内容推送到远程库上 git remote add origin git@github.com:lws597/HZOJ.git git push -u origin master </p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-27 22:59:11 +0800 +0800'>March 27, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to 类和对象4" href="https://xhwhis.github.io/hugo-blog/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A14/"></a>
+  <footer class="entry-footer"><span title='2022-03-27 22:59:11 +0800 +0800'>March 27, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;37 words&nbsp;·&nbsp;xhwhis</footer>
+  <a class="entry-link" aria-label="post link to note3" href="https://xhwhis.github.io/hugo-blog/posts/note3/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>
+    <h2>note4<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <div class="entry-content">
-    <p>Git 飞行规则(Flight Rules) Copied from https://github.com/k88hudson/git-flight-rules
-什么是&#34;飞行规则&#34;? 这是一篇给宇航员（这里就是指使用 Git 的程序员们）的指南，用来指导问题出现后的应对之法。
-飞行规则(Flight Rules) 是记录在手册上的来之不易的一系列知识，记录了某个事情发生的原因，以及怎样一步一步的进行处理。本质上, 它们是特定场景的非常详细的标准处理流程。 […]
-自 20 世纪 60 年代初以来，NASA 一直在捕捉(capturing)我们的失误，灾难和解决方案, 当时水星时代(Mercury-era)的地面小组首先开始将“经验教训”收集到一个纲要(compendium)中，该纲现在已经有上千个问题情景，从发动机故障到破损的舱口把手到计算机故障，以及它们对应的解决方案。
-— Chris Hadfield, 一个宇航员的生活指南(An Astronaut’s Guide to Life)。
-这篇文章的约定 为了清楚的表述，这篇文档里的所有例子使用了自定义的 bash 提示，以便指示当前分支和是否有暂存的变化(changes)。分支名用小括号括起来，分支名后面跟的*表示暂存的变化(changes)。
-Table of Contents generated with DocToc
-编辑提交(editting commits) 我刚才提交了什么? 我的提交信息(commit message)写错了 我提交(commit)里的用户名和邮箱不对 我想从一个提交(commit)里移除一个文件 我想删除我的的最后一次提交(commit) 删除任意提交(commit) 我尝试推一个修正后的提交(amended commit)到远程，但是报错： 我意外的做了一次硬重置(hard reset)，我想找回我的内容 暂存(Staging) 我需要把暂存的内容添加到上一次的提交(commit) 我想要暂存一个新文件的一部分，而不是这个文件的全部 我想把在一个文件里的变化(changes)加到两个提交(commit)里 我想把暂存的内容变成未暂存，把未暂存的内容暂存起来 未暂存(Unstaged)的内容 我想把未暂存的内容移动到一个新分支 我想把未暂存的内容移动到另一个已存在的分支 我想丢弃本地未提交的变化(uncommitted changes) 我想丢弃某些未暂存的内容 分支(Branches) 我从错误的分支拉取了内容，或把内容拉取到了错误的分支 我想扔掉本地的提交(commit)，以便我的分支与远程的保持一致 我需要提交到一个新分支，但错误的提交到了 main 我想保留来自另外一个 ref-ish 的整个文件 我把几个提交(commit)提交到了同一个分支，而这些提交应该分布在不同的分支里 我想删除上游(upstream)分支被删除了的本地分支 我不小心删除了我的分支 我想删除一个分支 我想从别人正在工作的远程分支签出(checkout)一个分支 Rebasing 和合并(Merging) 我想撤销 rebase/merge 我已经 rebase 过, 但是我不想强推(force push) 我需要组合(combine)几个提交(commit) 安全合并(merging)策略 我需要将一个分支合并成一个提交(commit) 我只想组合(combine)未推的提交(unpushed commit) 检查是否分支上的所有提交(commit)都合并(merge)过了 交互式 rebase(interactive rebase)可能出现的问题 这个 rebase 编辑屏幕出现’noop’ 有冲突的情况 Stash 暂存所有改动 暂存指定文件 暂存时记录消息 使用某个指定暂存 暂存时保留未暂存的内容 杂项(Miscellaneous Objects) 克隆所有子模块 删除标签(tag) 恢复已删除标签(tag) 已删除补丁(patch) 跟踪文件(Tracking Files) 我只想改变一个文件名字的大小写，而不修改内容 我想从 Git 删除一个文件，但保留该文件 配置(Configuration) 我想给一些 Git 命令添加别名(alias) 我想缓存一个仓库(repository)的用户名和密码 我不知道我做错了些什么 其它资源(Other Resources) 书(Books) 教程(Tutorials) 脚本和工具(Scripts and Tools) GUI 客户端(GUI Clients) 编辑提交(editting commits) 我刚才提交了什么?...</p>
+    <p>DAY05 输出函数说明 printf 函数
+头文件:stdio.h 原型:int printf(const char *format,…); format:格式控制字符串 …:可变参数列表 返回值:输出字符类型 输出函数说明 scanf 函数
+头文件:stdio.h 原型:int scanf(const char *format,…); format:格式控制字符 …:可变参数列表 返回值:成功读入列表 请使用 printf 函数,求解一个数字 n 的十进制表示的数字位数
+#include&lt;stdio.h&gt; int main(){ int n; while(scanf(&#34;%d&#34;,&amp;n)!=EOF){ printf(&#34; has %d digits\n&#34;,printf(&#34;%d&#34;,n)); } return 0; } 请写一个程序,读入一个行字符串(可能包含空格),输出这个字符串中字符的数量
+#include&lt;stdio.h&gt; int main(){ char str[100]; while(scanf(&#34;%[^\n]s&#34;,str)!=EOF) { getchar(); printf(&#34; has %d chars\n&#34;,printf(&#34;%s&#34;,str)); } return 0; } sprintf 和 fprintf 代码演示 #include &lt;stdio.h&gt; #define swap(a, b) { \ __typeof(a) temp = a;\ a = b, b = temp; \ } int main() { printf(&#34;%c\n&#34;, 97); int n; scanf(&#34;%d&#34;, &amp;n); printf(&#34;%04d\n&#34;, n); char str[100], buff[100], *p = str, *q = buff; sprintf(str, &#34;%d....</p>
   </div>
-  <footer class="entry-footer"></footer>
-  <a class="entry-link" aria-label="post link to " href="https://xhwhis.github.io/hugo-blog/posts/git-flight-rules/"></a>
+  <footer class="entry-footer"><span title='2022-03-27 22:59:11 +0800 +0800'>March 27, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;158 words&nbsp;·&nbsp;xhwhis</footer>
+  <a class="entry-link" aria-label="post link to note4" href="https://xhwhis.github.io/hugo-blog/posts/note4/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>
+    <h2>printf<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <div class="entry-content">
-    <p>mac git 配置</p>
+    <p>printf 输出颜色和 ANSI 控制码(高亮,下划线,闪烁,光标位置,清屏等)
+颜色：
+#define NONE “/033[m”
+#define RED “/033[0;32;31m”
+#define LIGHT_RED “/033[1;31m”
+#define GREEN “/033[0;32;32m”
+#define LIGHT_GREEN “/033[1;32m”
+#define BLUE “/033[0;32;34m”
+#define LIGHT_BLUE “/033[1;34m”
+#define DARY_GRAY “/033[1;30m”
+#define CYAN “/033[0;36m”
+#define LIGHT_CYAN “/033[1;36m”
+#define PURPLE “/033[0;35m”
+#define LIGHT_PURPLE “/033[1;35m”
+#define BROWN “/033[0;33m”
+#define YELLOW “/033[1;33m”
+#define LIGHT_GRAY “/033[0;37m”
+#define WHITE “/033[1;37m”
+比如：
+printf(&#34;/033[31m ####—–&gt;&gt; /033[32m&#34; “hello/n” “/033[m”)
+int main()
+{
+printf( CYAN “current function is %s &#34; GREEN &#34; file line is %d/n” NONE,...</p>
   </div>
-  <footer class="entry-footer"></footer>
-  <a class="entry-link" aria-label="post link to " href="https://xhwhis.github.io/hugo-blog/posts/mac-git%E9%85%8D%E7%BD%AE/"></a>
+  <footer class="entry-footer"><span title='2022-03-27 22:59:11 +0800 +0800'>March 27, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;191 words&nbsp;·&nbsp;xhwhis</footer>
+  <a class="entry-link" aria-label="post link to printf" href="https://xhwhis.github.io/hugo-blog/posts/printf/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>
+    <h2>RBTree<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <div class="entry-content">
-    <p>mac rust 开发环境配置</p>
+    <p>RedBlack_Tree 五个条件 节点非黑即红 根节点是黑色的 叶节点(NIL)是黑色的 如果一个节点是红色的，则它的两个子节点都是黑色的 从根节点出发到所有叶节点路径上，黑色节点数量相同 最短路径全黑，节点数 a，最长路径有相同多个黑色节点（条件 5）
+，红色节点不能连续（条件 4），节点数 2a
+调整策略 插入节点站在祖父节点看
+删除调整站在父节点看
+插入调整 用带有两个黑色的 NIL 的新节点替换 NIL 叶节点
+为了方便调整，新结点初始为红色（黑色节点影响条件 5）
+情况一 插入节点的父节点是黑色
+直接插入
+情况二 插入节点的父节点和叔节点都是红色
+父节点、叔节点染成黑色，祖父节点染成红色
+情况三 LL 插入节点的父节点是红色，叔节点是黑色，插入节点是父节点的左孩子，父节点是祖父节点的左孩子
+祖父节点右旋，祖父节点染成红色，父节点染成黑色
+情况四 LR 插入节点的父节点是红色，叔节点是黑色，插入节点是父节点的右孩子，父节点是祖父节点的左孩子
+父节点左旋，转换为情况三（祖父节点右旋，祖父节点染成红色，父节点染成黑色）
+删除调整 情况一 兄弟节点是红色
+父节点左旋，父节点染成红色，兄弟节点染成黑色
+情况二 父节点、兄弟节点和兄弟节点的子节点都是黑色
+父节点左旋，父节点染成红色
+情况三 父节点红色，兄弟节点和兄弟节点的子节点都是黑色
+父节点左旋
+情况四 父节点任意颜色，兄弟节点的右儿子红色，删除节点是父节点的左儿子
+父节点左旋，交换父节点、兄弟节点的颜色，兄弟节点的右孩子染成黑色
+情况五 父节点任意颜色，兄弟节点的左儿子红色，删除节点是父节点的左儿子
+兄弟节点染成红色，兄弟节点的左儿子染成黑色，兄弟节点右旋，转换为情况四</p>
   </div>
-  <footer class="entry-footer"></footer>
-  <a class="entry-link" aria-label="post link to " href="https://xhwhis.github.io/hugo-blog/posts/mac-rust%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>mac 自用配置 2.0</p>
-  </div>
-  <footer class="entry-footer"></footer>
-  <a class="entry-link" aria-label="post link to " href="https://xhwhis.github.io/hugo-blog/posts/mac%E8%87%AA%E7%94%A8%E9%85%8D%E7%BD%AE2.0/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Oracle Cloud 部署
-arm 上部署情 qinglong、vaultwarden、caddy、v2ray
-amd64 上部署 focalboard、appflowy、caddy（暂定）
-安装 podman
-dnf install -y podman 安装 qinglong、vaultwarden
-mkdir ql podman run -d --privileged --name qinglong -v $PWD/ql:/ql/data -p 5700:5700 --restart always docker.io/whyour/qinglong:latest mkdir vw podman run -d --privileged --name vaultwarden -v $PWD/vw/:/data/:Z -e ROCKET_PORT=8080 -p 8080:8080 --restart always docker.io/vaultwarden/server:latest mkdir maiark podman run -d --privileged --name maiark -v $PWD/maiark:/MaiARK -p 8082:8082 --restart always docker.io/kissyouhunter/maiark:latest 安装 caddy
-dnf install &#39;dnf-command(copr)&#39; dnf copr enable @caddy/caddy dnf install -y caddy firewall 配置...</p>
-  </div>
-  <footer class="entry-footer"></footer>
-  <a class="entry-link" aria-label="post link to " href="https://xhwhis.github.io/hugo-blog/posts/oracle-cloud%E9%83%A8%E7%BD%B2/"></a>
+  <footer class="entry-footer"><span title='2022-03-27 22:59:11 +0800 +0800'>March 27, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;54 words&nbsp;·&nbsp;xhwhis</footer>
+  <a class="entry-link" aria-label="post link to RBTree" href="https://xhwhis.github.io/hugo-blog/posts/rbtree/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://xhwhis.github.io/hugo-blog/page/3/">
       «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://xhwhis.github.io/hugo-blog/page/5/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>

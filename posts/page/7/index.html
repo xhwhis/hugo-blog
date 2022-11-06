@@ -133,93 +133,87 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>javascript学习note<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>类和对象3<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <div class="entry-content">
-    <p>js 语法 js 语法学习demo js 作为一个脚本语言，语法学习简单。其中 typeof 操作符较为有意思，无类型语言竟然还有类型检查机制，回头给自制语言添加一个 typeof 关键字。js 的 null 和 true/false 为保留关键字，自制语言的 null 和 true/false 也可设置为关键字，直接解析成 0/1
-var &amp; let &amp; const let 声明的变量只在 let 命令所在的代码块内有效 const 声明一个只读的常量，一旦声明，常量的值就不能改变
-for 循环{}中多用 let
-for…in &amp; for…of 在循环对象属性的时候，使用 for…in，for…in 循环得到的是 key 在遍历数组的时候的时候使用 for…of，for…of 循环得到的是 value
-1 2 3 4 5 6 7 for (let index in aArray) { console.log(aArray[index]); } for (let value of aArray) { console.log(value); } » &amp; »&gt; 运算符»&gt;执行无符号右移位运算。它把无符号的 32 位整数所有数位整体右移。对于无符号数或正数右移运算，无符号右移与有符号右移运算的结果是相同的...</p>
+    <p>类和对象 3 继承 面向对象程序设计中最重要的一个概念是继承。继承允许我们依据另一个类来定义一个类，这使得创建和维护一个应用程序变得更容易。这样做，也达到了重用代码功能和提高执行效率的效果。
+当创建一个类时，您不需要重新编写新的数据成员和成员函数，只需指定新建的类继承了一个已有的类的成员即可。这个已有的类称为基类，新建的类称为派生类。
+子类的访问权限 public protected private public yes yes yes protected yes yes no private no no no 对外的访问权限 public protected private public public protected private protected protected protected private private no no no 菱形继承（A-&gt;D, B-&gt;D, C-&gt;(A，B)） class D{......}; class B: public D{......}; class A: public D{......}; class C: public B, public A{.....}; 这个继承会使 D 创建两个对象,要解决上面问题就要用虚拟继承格式
+格式：class 类名: virtual 继承方式 父类名
+class D{......}; class B: virtual public D{....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-27 22:59:11 +0800 +0800'>March 27, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;498 words&nbsp;·&nbsp;xhwhis</footer>
-  <a class="entry-link" aria-label="post link to javascript学习note" href="https://xhwhis.github.io/hugo-blog/posts/javascript%E5%AD%A6%E4%B9%A0note/"></a>
+  <footer class="entry-footer"><span title='2022-03-27 22:59:11 +0800 +0800'>March 27, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;787 words&nbsp;·&nbsp;xhwhis</footer>
+  <a class="entry-link" aria-label="post link to 类和对象3" href="https://xhwhis.github.io/hugo-blog/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A13/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>macos自用配置<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>类和对象4<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <div class="entry-content">
-    <p>macos 自用配置 浏览器——google chrome
-翻墙——v2rayU
-终端——iterm2
-笔记——typora
-git tool——sourcetree
-开发环境 最先安装完成 Xcode，然后
-1 xcode-select --install 配置常用开发环境（其中 python3 version 3.8，需 brew install python@3.9）
-安装 homebrewcn 1 /bin/zsh -c &#34;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&#34; 安装常用工具 python、node、yarn、ccls、fzf、ranger、typora、sourcetree、qt-creator、autojump、thefuck、visual-studio-code、neovim、microsoft-remote-desktop，只需要分别
-1 brew install #&#43; 以上包名 安装过程中部分包会提示在.zshrc 中添加配置，自行添加
-修改 pip 源 1 2 mkdir ~/.pip vim ~/.pip/pip.conf [global] index-url = https://pypi.tuna.tsinghua.edu.cn/simple [install] trusted-host = https://pypi.tuna.tsinghua.edu.cn 升级 pip 1 pip3 install --upgrade pip 安装 pygments、pynvim 1 2 pip install -g pygments pip install -g pynvim 修改 npm、yarn 源 1 2 npm config set registry https://registry....</p>
+    <p>类和对象 4 多态 多态按字面的意思就是多种形态。当类之间存在层次结构，并且类之间是通过继承关联时，就会用到多态。
+C&#43;&#43;多态意味着调用成员函数时，会根据调用函数的对象的类型来执行不同的函数。
+虚函数 虚函数是在基类中使用关键字 virtual 声明的函数。在派生类中重新定义基类中定义的虚函数时，会告诉编译器不要静态链接到该函数。
+我们想要的是在程序中任意点可以根据所调用的对象类型来选择调用的函数，这种操作被称为动态链接，或后期绑定。
+纯虚函数 语义：子类肯定会有这个方法，而父类只能说“抱歉”
+应用场景：定义接口
+您可能想要在基类中定义虚函数，以便在派生类中重新定义该函数更好地适用于对象，但是您在基类中又不能对虚函数给出有意义的实现，这个时候就会用到纯虚函数。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 #include &lt;iostream&gt; #include &lt;string&gt; using namespace std; string rand_name(int n) { string name = &#34;&#34;; for (int i = 0; i &lt; n; i&#43;&#43;) { name = name &#43; (char)(rand() % 26 &#43; &#39;A&#39;); } return name; } class Animal { public: Animal(string name) : name(name) {} string get_name() {return this-&gt;name;} virtual void run() { cout &lt;&lt; &#34;I don&#39;t know how to run....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-27 22:59:11 +0800 +0800'>March 27, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;201 words&nbsp;·&nbsp;xhwhis</footer>
-  <a class="entry-link" aria-label="post link to macos自用配置" href="https://xhwhis.github.io/hugo-blog/posts/macos%E8%87%AA%E7%94%A8%E9%85%8D%E7%BD%AE/"></a>
+  <footer class="entry-footer"><span title='2022-03-27 22:59:11 +0800 +0800'>March 27, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;1008 words&nbsp;·&nbsp;xhwhis</footer>
+  <a class="entry-link" aria-label="post link to 类和对象4" href="https://xhwhis.github.io/hugo-blog/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A14/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>manjaro kde安装后的配置<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>
     </h2>
   </header>
   <div class="entry-content">
-    <p>manjaro kde 安装后的配置 启动项 1 sudo update-grub 镜像源（选择清华源） 1 2 3 sudo pacman-mirrors -i -c China -m rank sudo pacman -Syy sudo nano /etc/pacman.conf [archlinuxcn] SigLevel = Optional TrustedOnly Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch 1 2 sudo pacman -S archlinuxcn-keyring sudo apcman -Syyu 安装软件 yay 1 sudo pacman -S yay base-devel 1 yay --save --aururl &#34;https://aur.tuna.tsinghua.edu.cn&#34; git 1 yay -S git 1 2 3 git config --global user.name &#39;lws597&#39; git config --global user....</p>
+    <p>Git 飞行规则(Flight Rules) Copied from https://github.com/k88hudson/git-flight-rules
+什么是&#34;飞行规则&#34;? 这是一篇给宇航员（这里就是指使用 Git 的程序员们）的指南，用来指导问题出现后的应对之法。
+飞行规则(Flight Rules) 是记录在手册上的来之不易的一系列知识，记录了某个事情发生的原因，以及怎样一步一步的进行处理。本质上, 它们是特定场景的非常详细的标准处理流程。 […]
+自 20 世纪 60 年代初以来，NASA 一直在捕捉(capturing)我们的失误，灾难和解决方案, 当时水星时代(Mercury-era)的地面小组首先开始将“经验教训”收集到一个纲要(compendium)中，该纲现在已经有上千个问题情景，从发动机故障到破损的舱口把手到计算机故障，以及它们对应的解决方案。
+— Chris Hadfield, 一个宇航员的生活指南(An Astronaut’s Guide to Life)。
+这篇文章的约定 为了清楚的表述，这篇文档里的所有例子使用了自定义的 bash 提示，以便指示当前分支和是否有暂存的变化(changes)。分支名用小括号括起来，分支名后面跟的*表示暂存的变化(changes)。
+Table of Contents generated with DocToc
+编辑提交(editting commits) 我刚才提交了什么? 我的提交信息(commit message)写错了 我提交(commit)里的用户名和邮箱不对 我想从一个提交(commit)里移除一个文件 我想删除我的的最后一次提交(commit) 删除任意提交(commit) 我尝试推一个修正后的提交(amended commit)到远程，但是报错： 我意外的做了一次硬重置(hard reset)，我想找回我的内容 暂存(Staging) 我需要把暂存的内容添加到上一次的提交(commit) 我想要暂存一个新文件的一部分，而不是这个文件的全部 我想把在一个文件里的变化(changes)加到两个提交(commit)里 我想把暂存的内容变成未暂存，把未暂存的内容暂存起来 未暂存(Unstaged)的内容 我想把未暂存的内容移动到一个新分支 我想把未暂存的内容移动到另一个已存在的分支 我想丢弃本地未提交的变化(uncommitted changes) 我想丢弃某些未暂存的内容 分支(Branches) 我从错误的分支拉取了内容，或把内容拉取到了错误的分支 我想扔掉本地的提交(commit)，以便我的分支与远程的保持一致 我需要提交到一个新分支，但错误的提交到了 main 我想保留来自另外一个 ref-ish 的整个文件 我把几个提交(commit)提交到了同一个分支，而这些提交应该分布在不同的分支里 我想删除上游(upstream)分支被删除了的本地分支 我不小心删除了我的分支 我想删除一个分支 我想从别人正在工作的远程分支签出(checkout)一个分支 Rebasing 和合并(Merging) 我想撤销 rebase/merge 我已经 rebase 过, 但是我不想强推(force push) 我需要组合(combine)几个提交(commit) 安全合并(merging)策略 我需要将一个分支合并成一个提交(commit) 我只想组合(combine)未推的提交(unpushed commit) 检查是否分支上的所有提交(commit)都合并(merge)过了 交互式 rebase(interactive rebase)可能出现的问题 这个 rebase 编辑屏幕出现’noop’ 有冲突的情况 Stash 暂存所有改动 暂存指定文件 暂存时记录消息 使用某个指定暂存 暂存时保留未暂存的内容 杂项(Miscellaneous Objects) 克隆所有子模块 删除标签(tag) 恢复已删除标签(tag) 已删除补丁(patch) 跟踪文件(Tracking Files) 我只想改变一个文件名字的大小写，而不修改内容 我想从 Git 删除一个文件，但保留该文件 配置(Configuration) 我想给一些 Git 命令添加别名(alias) 我想缓存一个仓库(repository)的用户名和密码 我不知道我做错了些什么 其它资源(Other Resources) 书(Books) 教程(Tutorials) 脚本和工具(Scripts and Tools) GUI 客户端(GUI Clients) 编辑提交(editting commits) 我刚才提交了什么?...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-27 22:59:11 +0800 +0800'>March 27, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;302 words&nbsp;·&nbsp;xhwhis</footer>
-  <a class="entry-link" aria-label="post link to manjaro kde安装后的配置" href="https://xhwhis.github.io/hugo-blog/posts/manjaro-kde%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E9%85%8D%E7%BD%AE/"></a>
+  <footer class="entry-footer">12 min&nbsp;·&nbsp;2434 words&nbsp;·&nbsp;xhwhis</footer>
+  <a class="entry-link" aria-label="post link to " href="https://xhwhis.github.io/hugo-blog/posts/git-flight-rules/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>newcoder_cpp<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>
     </h2>
   </header>
   <div class="entry-content">
-    <p>niuke interview 基本语言 请说一下 C/C&#43;&#43; 中指针和引用的区别？ 参考回答：
-指针有自己的一块空间，而引用只是一个别名；
-使用 sizeof 看一个指针的大小是 4，而引用则是被引用对象的大小；
-指针可以被初始化为 NULL，而引用必须被初始化且必须是一个已有对象 的引用；
-作为参数传递时，指针需要被解引用才可以对对象进行操作，而直接对引 用的修改都会改变引用所指向的对象；
-可以有 const 指针，但是没有 const 引用；
-指针在使用中可以指向其它对象，但是引用只能是一个对象的引用，不能 被改变；
-指针可以有多级指针（**p），而引用至于一级；
-指针和引用使用&#43;&#43;运算符的意义不一样；
-如果返回动态内存分配的对象或者内存，必须使用指针，引用可能引起内存泄露。
-请你回答一下野指针是什么？ 参考回答：
-野指针就是指向一个已删除的对象或者未申请访问受限内存区域的指针</p>
+    <p>mac git 配置</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-27 22:59:11 +0800 +0800'>March 27, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;30 words&nbsp;·&nbsp;xhwhis</footer>
-  <a class="entry-link" aria-label="post link to newcoder_cpp" href="https://xhwhis.github.io/hugo-blog/posts/newcoder-cpp/"></a>
+  <footer class="entry-footer">1 min&nbsp;·&nbsp;3 words&nbsp;·&nbsp;xhwhis</footer>
+  <a class="entry-link" aria-label="post link to " href="https://xhwhis.github.io/hugo-blog/posts/mac-git%E9%85%8D%E7%BD%AE/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>note1<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>
     </h2>
   </header>
   <div class="entry-content">
-    <p>DAY01 更新源 打开终端（Ctrl&#43;Alt&#43;T），执行命令 sudo gedit /etc/apt/sources.list 将文本框的内容删除，粘贴以下内容,保存并退出 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse deb-src http://mirrors....</p>
+    <p>mac rust 开发环境配置</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-27 22:59:11 +0800 +0800'>March 27, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;924 words&nbsp;·&nbsp;xhwhis</footer>
-  <a class="entry-link" aria-label="post link to note1" href="https://xhwhis.github.io/hugo-blog/posts/note1/"></a>
+  <footer class="entry-footer">1 min&nbsp;·&nbsp;3 words&nbsp;·&nbsp;xhwhis</footer>
+  <a class="entry-link" aria-label="post link to " href="https://xhwhis.github.io/hugo-blog/posts/mac-rust%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
-    <a class="prev" href="https://xhwhis.github.io/hugo-blog/posts/page/2/">
+    <a class="prev" href="https://xhwhis.github.io/hugo-blog/posts/page/6/">
       «&nbsp;Prev&nbsp;
     </a>
-    <a class="next" href="https://xhwhis.github.io/hugo-blog/posts/page/4/">Next&nbsp;&nbsp;»
+    <a class="next" href="https://xhwhis.github.io/hugo-blog/posts/page/8/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>
